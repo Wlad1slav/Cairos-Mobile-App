@@ -1,7 +1,8 @@
-import {IonImg} from "@ionic/react";
+import {IonText} from "@ionic/react";
 import {ReactNode} from "react";
 
 import './AppReminder.scss';
+import '../stylesheet/container.scss';
 
 interface Reminder {
     heading: string,
@@ -14,9 +15,13 @@ function AppReminder({heading, imagePath, children}: Reminder) {
         <div className="container">
 
             <div className="reminder">
-                <IonImg src={imagePath} />
-                <h2>{heading}</h2>
-                <p>{children}</p>
+                <img src={imagePath} alt={imagePath}/>
+                <IonText color="primary">
+                    <h2>{heading}</h2>
+                </IonText>
+                <IonText color='dark'>
+                    <p>{children}</p>
+                </IonText>
             </div>
 
         </div>

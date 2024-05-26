@@ -1,24 +1,47 @@
-.container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+
+/* TYPOGRAPHY */
+/* Base text */
+$font-base-size: 16px;
+$font-base-weight: 400;
+$text-base-color: var(--ion-text-color-step-200);
+$text-base-line-height: 1.5;
+
+/* Headings */
+$font-heading-weight: 600;
+$font-heading-transform: uppercase;
+$font-heading1-size: 30px;
+$font-heading2-size: 24px;
+$font-heading3-size: 20px;
+
+
+/* Tab bar menu text */
+$font-tab-bar-size: 12px;
+$font-tab-bar-weight: $font-base-weight;
+$text-tab-bar-line-height: $text-base-line-height;
+
+p, span, ion-label, li {
+  font-size: $font-base-size;
+  font-weight: $font-base-weight;
+  color: $text-base-color;
+  line-height: $text-base-line-height;
 }
 
-.container strong {
-  font-size: 20px;
-  line-height: 26px;
+/* Tab bar styles */
+ion-tab-button {
+  ion-label {
+    font-size: $font-tab-bar-size;
+    font-weight: $font-tab-bar-weight;
+    line-height: $text-tab-bar-line-height;
+  }
 }
 
-.container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
+/* Headings styles */
+h1, h2, h3 {
+  font-weight: $font-heading-weight;
+  text-transform: $font-heading-transform;
 }
 
-.container a {
-  text-decoration: none;
-}
+/* Headings sizes */
+h1 { font-size: $font-heading1-size; }
+h2 { font-size: $font-heading2-size; }
+h3 { font-size: $font-heading3-size; }
