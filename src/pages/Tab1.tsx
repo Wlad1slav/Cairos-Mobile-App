@@ -1,23 +1,24 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import {IonContent, IonPage} from '@ionic/react';
+
 import './Tab1.css';
+import AppReminder from "../components/AppReminder";
+
 
 const Tab1: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Tab 1</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Tab 1 page" />
+
+          <AppReminder heading='Попий води' imagePath='https://content.health.harvard.edu/wp-content/uploads/2023/07/b8a1309a-ba53-48c7-bca3-9c36aab2338a.jpg'>
+              Вода є життєво необхідною для здоров'я 💧. Вона підтримує функціонування організму, покращує обмін речовин,
+              виводить токсини та підтримує баланс рідин ⚖️. Пити достатньо води щодня допомагає підтримувати енергію ⚡,
+              концентрацію 🧠 та загальний стан здоров'я 💪.
+          </AppReminder>
+
+
       </IonContent>
+
     </IonPage>
   );
 };
