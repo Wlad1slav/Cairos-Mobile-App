@@ -19,6 +19,6 @@ $font-tab-bar-weight: $font-base-weight;
 $text-tab-bar-line-height: $text-base-line-height;
 
 /* COLORS */
-$clr-primary: #8D553A;
-$clr-secondary: #8D553A;
-$clr-tertiary: #8D553A;
+$clr-primary: var(--ion-color-primary);
+$clr-secondary: var(--ion-color-secondary);
+$clr-tertiary: var(--ion-color-tertiary);
