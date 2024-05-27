@@ -13,7 +13,7 @@ function AppHeader() {
                 <div className='header'>
                     <div className='app-name'>
                         <IonIcon icon={hourglass} color='primary' />
-                        Cairosu
+                        Cairos
                     </div>
                     <AppLogo />
                 </div>
