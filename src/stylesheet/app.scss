@@ -1,23 +1,4 @@
-
-/* TYPOGRAPHY */
-/* Base text */
-$font-base-size: 16px;
-$font-base-weight: 400;
-$text-base-color: var(--ion-text-color-step-200);
-$text-base-line-height: 1.5;
-
-/* Headings */
-$font-heading-weight: 600;
-$font-heading-transform: uppercase;
-$font-heading1-size: 30px;
-$font-heading2-size: 24px;
-$font-heading3-size: 20px;
-
-
-/* Tab bar menu text */
-$font-tab-bar-size: 12px;
-$font-tab-bar-weight: $font-base-weight;
-$text-tab-bar-line-height: $text-base-line-height;
+@import "globals";
 
 p, span, ion-label, li {
   font-size: $font-base-size;
