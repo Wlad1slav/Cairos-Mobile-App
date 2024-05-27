@@ -1,45 +1,82 @@
-import {IonContent, IonPage} from '@ionic/react';
+import {
+    IonButton, IonContent, IonIcon,
+    IonItem, IonItemOption, IonItemOptions,
+    IonItemSliding, IonList, IonPage
+} from '@ionic/react';
+
+import React, {useRef} from "react";
+
+import {checkmark, returnDownBack} from "ionicons/icons";
 
 import AppReminder from "../components/AppReminder";
 import AppHeader from "../components/AppHeader";
 
-import './Tab1.css';
+import {useStorage} from "../../hooks/useStorage";
 
 
 const Tab1: React.FC = () => {
-  return (
-    <IonPage>
 
-      <AppHeader />
+    const {todos, addTodo, updateTodoStatus} = useStorage();
+    const ionList = useRef(null as any);
 
-      <IonContent fullscreen>
+    const createTodo = async () => {
+        await addTodo(
+            'Попий води',
+            'Вода є життєво необхідною для здоров\'я. Вона підтримує функціонування організму, покращує обмін речовин та підтримує баланс рідин ️.',
+            'https://content.health.harvard.edu/wp-content/uploads/2023/07/b8a1309a-ba53-48c7-bca3-9c36aab2338a.jpg'
+        );
+    }
 
-          <div className="reminds-wall">
-              <AppReminder heading='Попий води' imagePath='https://content.health.harvard.edu/wp-content/uploads/2023/07/b8a1309a-ba53-48c7-bca3-9c36aab2338a.jpg'>
-                  Вода є життєво необхідною для здоров'я. Вона підтримує функціонування організму, покращує обмін речовин та підтримує баланс рідин ️.
-              </AppReminder>
+    const updateStatus = async (id: string, newStatus: boolean) => {
+        await ionList.current.closeSlidingItems();
+        await updateTodoStatus(id, newStatus);
+    }
 
-              <AppReminder heading='Свіже повітря' imagePath='https://st2.depositphotos.com/3733299/5252/i/450/depositphotos_52527605-stock-photo-bench-and-fresh-air.jpg'>
-                  Відвідайте парки і ліси, щоб наповнити день свіжим повітрям і зарядитися енергією природи. Дихайте глибше!
-              </AppReminder>
+    return (
+        <IonPage>
 
-              <AppReminder heading='Ранкова кава' imagePath='https://denzadnem.com.ua/wp-content/uploads/2023/05/kava-bez-kofeinu-1.jpg'>
-                  Почніть день з чашки ароматної кави. Це подарує вам заряд бадьорості та натхнення на весь день.
-              </AppReminder>
+            <AppHeader/>
 
-              <AppReminder heading='Активний відпочинок' imagePath='https://dorogovkaz.com/images/aktivniy_otdyh/aktivniy_otdyh_photo.jpg'>
-                  Займайтеся спортом або прогулянками. Активний відпочинок допоможе підтримати фізичну форму і покращить настрій.
-              </AppReminder>
+            <IonContent fullscreen>
 
-              <AppReminder heading='Час для себе' imagePath='https://pic.sport.ua/images/news/0/12/29/orig_485870.jpg'>
-                  Знайдіть час для улюбленого хобі або медитації. Це допоможе розслабитися і знайти внутрішній спокій.
-              </AppReminder>
-          </div>
+                <IonButton onClick={() => createTodo()}>Add</IonButton>
 
-      </IonContent>
+                <IonList ref={ionList}>
+                    {/* A cycle that goes through all the tasks for the day and outputs them */}
+                    {todos.map((todo, key) => (
+                        <IonItemSliding key={key}>
+                            <IonItem>
+                                <AppReminder heading={todo.title}
+                                             imagePath={todo.image}
+                                             isDone={todo.isDone}>
+                                    {todo.content}
+                                </AppReminder>
+                            </IonItem>
 
-    </IonPage>
-  );
+                            {/* If the task has not yet been completed, an option to complete it is available */}
+                            {!todo.isDone ?
+                                <IonItemOptions side="start">
+                                    <IonItemOption color={'tertiary'} onClick={() => updateStatus(todo.id, true)} >
+                                        <IonIcon icon={checkmark}></IonIcon>
+                                    </IonItemOption>
+                                </IonItemOptions>
+                                :
+                                <IonItemOptions side="end">
+                                    <IonItemOption color={'primary'} onClick={() => updateStatus(todo.id, false)} >
+                                        <IonIcon icon={returnDownBack}></IonIcon>
+                                    </IonItemOption>
+                                </IonItemOptions>
+                            }
+
+                        </IonItemSliding>
+                    ))}
+
+                </IonList>
+
+            </IonContent>
+
+        </IonPage>
+    );
 };
 
 export default Tab1;

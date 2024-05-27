@@ -26,3 +26,19 @@ h1, h2, h3 {
 h1 { font-size: $font-heading1-size; }
 h2 { font-size: $font-heading2-size; }
 h3 { font-size: $font-heading3-size; }
+
+/* Action button styles in the IonItemOptions component */
+ion-item-options {
+  &.item-options-start {
+    ion-item-option {
+      border-bottom-right-radius: 20px;
+      border-top-right-radius: 20px;
+    }
+  }
+  &.item-options-end {
+    ion-item-option {
+      border-bottom-left-radius: 20px;
+      border-top-left-radius: 20px;
+    }
+  }
+}
