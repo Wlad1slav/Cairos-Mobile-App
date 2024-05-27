@@ -1,9 +1,9 @@
-import {IonHeader, IonIcon, IonTitle, IonToolbar} from "@ionic/react";
+import {IonHeader, IonIcon, IonToolbar} from "@ionic/react";
+import {hourglass} from "ionicons/icons";
 
 import AppLogo from "./AppLogo";
 
 import './AppHeader.scss';
-import {hourglass} from "ionicons/icons";
 
 
 function AppHeader() {
