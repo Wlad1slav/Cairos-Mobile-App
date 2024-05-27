@@ -1,16 +1,25 @@
+@import "../stylesheet/globals";
+
 .reminder {
 
   display: flex;
-  flex-direction: column;
   align-items: center;
+  gap: 15px;
 
-  p {
-    color: #8c8c8c;
+  padding: 10px;
+  margin: 5px;
+  border: 2px solid var(--ion-color-primary);
+  border-radius: 30px;
+
+  background-color: transparentize($clr-primary, 0.9);
+
+  h3, p {
+    text-align: left;
   }
 
   img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 100%;
     border: 1px solid var(--ion-color-secondary);
   }

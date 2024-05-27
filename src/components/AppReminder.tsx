@@ -12,18 +12,16 @@ interface Reminder {
 
 function AppReminder({heading, imagePath, children}: Reminder) {
     return (
-        <div className="container">
-
-            <div className="reminder">
-                <img src={imagePath} alt={imagePath}/>
+        <div className="reminder">
+            <img src={imagePath} alt={imagePath}/>
+            <div className="content">
                 <IonText color="primary">
-                    <h2>{heading}</h2>
+                    <h3>{heading}</h3>
                 </IonText>
                 <IonText color='dark'>
                     <p>{children}</p>
                 </IonText>
             </div>
-
         </div>
     );
 }
