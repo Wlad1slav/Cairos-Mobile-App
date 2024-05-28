@@ -10,11 +10,7 @@ function AppHeader() {
     return (
         <IonHeader>
             <IonToolbar>
-                <div className='header'>
-                    <div className='app-name'>
-                        <IonIcon icon={hourglass} color='primary' />
-                        Cairos
-                    </div>
+                <div className="header">
                     <AppLogo />
                 </div>
             </IonToolbar>

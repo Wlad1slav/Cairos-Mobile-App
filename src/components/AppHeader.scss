@@ -1,26 +1,14 @@
 .header {
   display: flex;
-  justify-content: space-between;
-  border-bottom: 2px solid var(--ion-color-primary);
-  background-color: var(--ion-color-secondary);
+  justify-content: center;
 
-  .logo, .app-name {
-    padding: 5px 20px;
-  }
-
-  .app-name {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-
-    font-weight: 800;
-    color: var(--ion-color-primary-shade);
-
-    font-size: 30px;
+  .logo {
+    padding: 5px;
   }
 }
 
 ion-header {
   margin-bottom: 20px;
+  background-color: red!important;
 }
 

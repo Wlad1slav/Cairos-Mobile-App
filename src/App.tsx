@@ -10,8 +10,8 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {alarmSharp, diamond, settings } from 'ionicons/icons';
-import Tab1 from './pages/Tab1';
+import {alarmSharp, diamond, home, person, settings, star} from 'ionicons/icons';
+import TabReminds from './pages/TabReminds';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -46,6 +46,9 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 import AppHeader from "./components/AppHeader";
+import TabHome from "./pages/TabHome";
+import TabRating from "./pages/TabRating";
+import TabProfile from "./pages/TabProfile";
 
 setupIonicReact();
 
@@ -56,30 +59,59 @@ const App: React.FC = () => (
       <IonTabs>
 
         <IonRouterOutlet>
-          <Route exact path="/tab1">
-            <Tab1 />
+
+          {/* TODO */}
+          <Route exact path="/home">
+            <TabHome />
           </Route>
 
+          {/* A page with reminders, advice on what to do for the user today */}
+          <Route exact path="/reminds">
+            <TabReminds />
+          </Route>
+
+          {/* TODO */}
+          <Route exact path="/rating">
+            <TabRating />
+          </Route>
+
+          {/* TODO */}
+          <Route exact path="/profile">
+            <TabProfile />
+          </Route>
+
+          {/* Redirect to the main page */}
           <Route exact path="/">
-            <Redirect to="/tab1" />
+            <Redirect to="/home" />
           </Route>
         </IonRouterOutlet>
 
         <IonTabBar slot="bottom">
-          <IonTabButton tab="tab2" href="/tab2">
-            <IonIcon aria-hidden="true" icon={settings} />
-            <IonLabel>Налаштування</IonLabel>
+
+          <IonTabButton tab="home" href="/home">
+            <IonIcon aria-hidden="true" icon={home} />
+            <IonLabel>Головна</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="tab1" href="/tab1">
+          <IonTabButton tab="reminds" href="/reminds">
             <IonIcon aria-hidden="true" icon={alarmSharp} />
             <IonLabel>Нагадування</IonLabel>
           </IonTabButton>
 
-          <IonTabButton tab="tab3" href="/tab3">
-            <IonIcon aria-hidden="true" icon={diamond} />
-            <IonLabel>Преміум</IonLabel>
+          <IonTabButton tab="rating" href="/rating">
+            <IonIcon aria-hidden="true" icon={star} />
+            <IonLabel>Рейтинг</IonLabel>
           </IonTabButton>
+
+          <IonTabButton tab="profile" href="/profile">
+            <IonIcon aria-hidden="true" icon={person} />
+            <IonLabel>Профіль</IonLabel>
+          </IonTabButton>
+
+          {/*<IonTabButton tab="tab4" href="/tab3">*/}
+          {/*  <IonIcon aria-hidden="true" icon={diamond} />*/}
+          {/*  <IonLabel>Преміум</IonLabel>*/}
+          {/*</IonTabButton>*/}
         </IonTabBar>
 
       </IonTabs>

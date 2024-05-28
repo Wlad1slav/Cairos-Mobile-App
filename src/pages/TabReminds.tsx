@@ -14,7 +14,7 @@ import AppHeader from "../components/AppHeader";
 import {useStorage} from "../../hooks/useStorage";
 
 
-const Tab1: React.FC = () => {
+const TabReminds: React.FC = () => {
 
     const {todos, addTodo, updateTodoStatus} = useStorage();
     const ionList = useRef(null as any);
@@ -39,7 +39,7 @@ const Tab1: React.FC = () => {
 
             <IonContent fullscreen>
 
-                <IonButton onClick={() => createTodo()}>Add</IonButton>
+                {/*<IonButton onClick={() => createTodo()}>Add</IonButton>*/}
 
                 <IonList ref={ionList}>
                     {/* A cycle that goes through all the tasks for the day and outputs them */}
@@ -79,4 +79,4 @@ const Tab1: React.FC = () => {
     );
 };
 
-export default Tab1;
+export default TabReminds;

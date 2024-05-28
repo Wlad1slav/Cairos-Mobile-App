@@ -3,7 +3,7 @@ import {IonImg} from "@ionic/react";
 
 function AppLogo() {
     return (
-        <IonImg src='images/logo-circule.png' className='logo' />
+        <IonImg src='/logo.png' className='logo' />
     );
 }
 
