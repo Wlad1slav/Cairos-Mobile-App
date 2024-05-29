@@ -8,28 +8,33 @@ import React, {useRef} from "react";
 
 import {checkmark, returnDownBack} from "ionicons/icons";
 
-import AppReminder from "../components/AppReminder";
 import AppHeader from "../components/AppHeader";
+import AppTodo from "../components/AppTodo";
+import {TodoValues} from "../components/AppTodo";
 
 import {useStorage} from "../../hooks/useStorage";
 
 
-const TabReminds: React.FC = () => {
+const TabTodos: React.FC = () => {
 
-    const {todos, addTodo, updateTodoStatus} = useStorage();
+    const {todos, addTodo, updateTodoStatus} = useStorage<TodoValues>('cairosdb');
+
     const ionList = useRef(null as any);
 
     const createTodo = async () => {
-        await addTodo(
-            'Попий води',
-            'Вода є життєво необхідною для здоров\'я. Вона підтримує функціонування організму, покращує обмін речовин та підтримує баланс рідин ️.',
-            'https://content.health.harvard.edu/wp-content/uploads/2023/07/b8a1309a-ba53-48c7-bca3-9c36aab2338a.jpg'
-        );
+        await addTodo({
+            title: 'Попий води',
+            content: 'Вода є життєво необхідною для здоров\'я. Вона підтримує функціонування організму, покращує обмін речовин та підтримує баланс рідин ️.',
+            image: 'https://content.health.harvard.edu/wp-content/uploads/2023/07/b8a1309a-ba53-48c7-bca3-9c36aab2338a.jpg',
+            isDone: false
+        });
     }
 
     const updateStatus = async (id: string, newStatus: boolean) => {
         await ionList.current.closeSlidingItems();
-        await updateTodoStatus(id, newStatus);
+        await updateTodoStatus(id, {
+            isDone: newStatus
+        });
     }
 
     return (
@@ -39,22 +44,22 @@ const TabReminds: React.FC = () => {
 
             <IonContent fullscreen>
 
-                {/*<IonButton onClick={() => createTodo()}>Add</IonButton>*/}
+                <IonButton onClick={() => createTodo()}>Add</IonButton>
 
                 <IonList ref={ionList}>
                     {/* A cycle that goes through all the tasks for the day and outputs them */}
                     {todos.map((todo, key) => (
                         <IonItemSliding key={key}>
                             <IonItem>
-                                <AppReminder heading={todo.title}
-                                             imagePath={todo.image}
-                                             isDone={todo.isDone}>
-                                    {todo.content}
-                                </AppReminder>
+                                <AppTodo title={todo.values.title}
+                                             image={todo.values.image}
+                                             isDone={todo.values.isDone}>
+                                    {todo.values.content}
+                                </AppTodo>
                             </IonItem>
 
                             {/* If the task has not yet been completed, an option to complete it is available */}
-                            {!todo.isDone ?
+                            {!todo.values.isDone ?
                                 <IonItemOptions side="start">
                                     <IonItemOption color={'tertiary'} onClick={() => updateStatus(todo.id, true)} >
                                         <IonIcon icon={checkmark}></IonIcon>
@@ -79,4 +84,4 @@ const TabReminds: React.FC = () => {
     );
 };
 
-export default TabReminds;
+export default TabTodos;
