@@ -11,7 +11,7 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import {alarmSharp, diamond, home, person, settings, star} from 'ionicons/icons';
-import TabReminds from './pages/TabReminds';
+import TabTodos from './pages/TabTodos';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -67,7 +67,7 @@ const App: React.FC = () => (
 
           {/* A page with reminders, advice on what to do for the user today */}
           <Route exact path="/reminds">
-            <TabReminds />
+            <TabTodos />
           </Route>
 
           {/* TODO */}

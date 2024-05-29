@@ -1,23 +1,28 @@
 import {IonText} from "@ionic/react";
 import {ReactNode} from "react";
 
-import './AppReminder.scss';
+import './AppTodo.scss';
 import '../stylesheet/container.scss';
 
-interface Reminder {
-    heading: string
-    imagePath: string
-    children: ReactNode
+
+export interface TodoValues {
+    title: string
+    content: string
+    image: string
     isDone: boolean
 }
 
-function AppReminder({heading, imagePath, isDone, children}: Reminder) {
+interface Todo extends Omit<TodoValues, 'content'> {
+    children: ReactNode
+}
+
+function AppTodo({title, image, isDone, children}: Todo) {
     return (
         <div className={['reminder', isDone ? 'done' : ''].join(' ')}>
-            <img src={imagePath} alt={imagePath}/>
+            <img src={image} alt={image}/>
             <div className="content">
                 <IonText color="primary">
-                    <h3>{heading}</h3>
+                    <h3>{title}</h3>
                 </IonText>
                 <IonText color='dark'>
                     <p>{children}</p>
@@ -27,4 +32,4 @@ function AppReminder({heading, imagePath, isDone, children}: Reminder) {
     );
 }
 
-export default AppReminder;
+export default AppTodo;
