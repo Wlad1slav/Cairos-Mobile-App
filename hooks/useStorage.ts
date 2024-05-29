@@ -1,67 +1,58 @@
 import { Storage } from "@ionic/storage";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
-const TODOS_KEY = 'todos-key'
+const LOCAL_STORAGE_KEY = 'local-storage-key'
 
-export interface TodoItem {
-    id: string
-    title: string
-    content: string
-    image: string
-    isDone: boolean
-    date: number // day
+export interface Item<T> {
+    id: string;
+    values: T; // Uses the passed interface
 }
 
-
-export function useStorage() {
-
+export function useStorage<T>(storageName: string) {
     const [store, setStore] = useState<Storage>()
-    const [todos, setTodos] = useState<TodoItem[]>([])
+    const [rows, setRows] = useState<Item<T>[]>([])
 
     useEffect(() => {
         const initStorage = async () => {
             const newStore = new Storage({
-                name: 'cairosdb'
-
+                name: storageName
             });
             const store = await newStore.create();
             setStore(store);
 
-            const storedTools = await store.get(TODOS_KEY) || [];
-            setTodos(storedTools);
+            const storedTools = await store.get(LOCAL_STORAGE_KEY) || [];
+            setRows(storedTools);
         }
         initStorage();
     }, []);
 
-    /* Create new task */
-    const addTodo = async (taskTitle: string, taskText: string, taskImage: string) => {
+    /* Create new row */
+    const addRow = async (value: T) => {
         const newTodo = {
             id: new Date().getTime().toString(),
-            title: taskTitle,
-            content: taskText,
-            image: taskImage,
-            isDone: false,
-            date: new Date().getDate()
+            values: value
         }
-        const updatedTodos = [...todos, newTodo];
-        setTodos(updatedTodos);
+        const updatedTodos = [...rows, newTodo];
+        setRows(updatedTodos);
         console.log(updatedTodos);
-        store?.set(TODOS_KEY, updatedTodos);
+        store?.set(LOCAL_STORAGE_KEY, updatedTodos);
     }
 
-    /* Change existing task's status */
-    const updateTodoStatus = async (id: string, status: boolean) => {
-        const toUpdate = [...todos];
-        let todo = todos.filter(todo => todo.id === id)[0];
-        todo.isDone = status;
+    /* Update existing row */
+    const updateRow = async (id: string, newValue: Partial<T>) => {
+        const toUpdate = [...rows];
 
-        setTodos(toUpdate);
-        return store?.set(TODOS_KEY, todos);
+        // Finds a row that changes in local storage
+        let row = rows.filter(todo => todo.id === id)[0];
+
+        // The specific rows of the object that were passed are updated.
+        // Others do not change.
+        row.values = { ...row.values, ...newValue };
+
+        setRows(toUpdate);
+
+        return store?.set(LOCAL_STORAGE_KEY, rows);
     }
 
-    return {
-        todos,
-        addTodo,
-        updateTodoStatus
-    }
+    return { todos: rows, addTodo: addRow, updateTodoStatus: updateRow }
 }
