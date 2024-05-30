@@ -1,0 +1,31 @@
+@import "../stylesheet/globals";
+
+
+ion-title {
+  font-weight: $font-heading-weight;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  padding: 0 10px;
+
+  div.password-input {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  div.actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      text-decoration: none;
+      font-size: $font-base-size - 4px;
+    }
+  }
+}

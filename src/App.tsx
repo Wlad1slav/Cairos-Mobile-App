@@ -49,6 +49,7 @@ import AppHeader from "./components/AppHeader";
 import TabHome from "./pages/TabHome";
 import TabRating from "./pages/TabRating";
 import TabProfile from "./pages/TabProfile";
+import TabRegistration from "./pages/TabRegistration";
 
 setupIonicReact();
 
@@ -78,6 +79,11 @@ const App: React.FC = () => (
           {/* TODO */}
           <Route exact path="/profile">
             <TabProfile />
+          </Route>
+
+          {/* TODO */}
+          <Route exact path="/register">
+            <TabRegistration />
           </Route>
 
           {/* Redirect to the main page */}
