@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {TextFieldTypes} from "@ionic/core";
 
 interface AppInput {
+    name: string;
     type: TextFieldTypes;
     label: string;
     labelPlacement?: "floating" | "stacked" | "fixed";
@@ -19,6 +20,7 @@ interface AppInput {
 
 const AppInput: React.FC<AppInput> = ({
                                            type,
+                                           name,
                                            label,
                                            labelPlacement = "floating",
                                            fill = "solid",
@@ -50,6 +52,7 @@ const AppInput: React.FC<AppInput> = ({
 
     return (
         <IonInput
+            name={name}
             type={type}
             label={label}
             labelPlacement={labelPlacement}
