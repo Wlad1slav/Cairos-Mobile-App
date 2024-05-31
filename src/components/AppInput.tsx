@@ -1,6 +1,6 @@
 import { IonIcon, IonInput } from "@ionic/react";
 import React, { useState } from "react";
-import {TextFieldTypes} from "@ionic/core";
+import { TextFieldTypes } from "@ionic/core";
 
 interface AppInput {
     name: string;
@@ -16,23 +16,25 @@ interface AppInput {
     maxlength?: number;
     minlength?: number;
     counter?: boolean;
+    onIonChange?: (e: CustomEvent) => void | undefined;
 }
 
 const AppInput: React.FC<AppInput> = ({
-                                           type,
-                                           name,
-                                           label,
-                                           labelPlacement = "floating",
-                                           fill = "solid",
-                                           helperText,
-                                           errorText,
-                                           placeholder,
-                                           icon,
-                                           validateFunction = () => { return true; },
-                                           maxlength = 254,
-                                           minlength ,
-                                           counter = false
-                                       }) => {
+                                          type,
+                                          name,
+                                          label,
+                                          labelPlacement = "floating",
+                                          fill = "solid",
+                                          helperText,
+                                          errorText,
+                                          placeholder,
+                                          icon,
+                                          validateFunction = () => { return true; },
+                                          maxlength = 254,
+                                          minlength,
+                                          counter = false,
+                                          onIonChange
+                                      }) => {
     const [isTouched, setIsTouched] = useState(false);
     const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
 
@@ -63,13 +65,13 @@ const AppInput: React.FC<AppInput> = ({
             maxlength={maxlength}
             minlength={minlength}
             className={`${isValid === false && 'ion-invalid'} ${isTouched && 'ion-touched'}`}
-            onIonInput={(event) => validate(event)}
+            onIonInput={(event) => validate(event as any)}
             onIonBlur={() => markTouched()}
             counter={counter}
             counterFormatter={(inputLength, maxLength) => `${maxLength - inputLength} символів залишилося`}
+            onIonChange={onIonChange}
         >
-            {/* If an icon is used for the field */}
-            { icon ?
+            {icon ?
                 <IonIcon slot="start" icon={icon} aria-hidden="true" color={(isValid ?? true) ? 'primary' : 'danger'}></IonIcon>
                 : ''
             }
