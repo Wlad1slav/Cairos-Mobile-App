@@ -17,12 +17,12 @@ import {useStorage} from "../../hooks/useStorage";
 
 const TabTodos: React.FC = () => {
 
-    const {todos, addTodo, updateTodoStatus} = useStorage<TodoValues>('cairosdb');
+    const {rows, addRow, updateRow} = useStorage<TodoValues>('tips_for_today');
 
     const ionList = useRef(null as any);
 
     const createTodo = async () => {
-        await addTodo({
+        await addRow({
             title: 'Попий води',
             content: 'Вода є життєво необхідною для здоров\'я. Вона підтримує функціонування організму, покращує обмін речовин та підтримує баланс рідин ️.',
             image: 'https://content.health.harvard.edu/wp-content/uploads/2023/07/b8a1309a-ba53-48c7-bca3-9c36aab2338a.jpg',
@@ -32,7 +32,7 @@ const TabTodos: React.FC = () => {
 
     const updateStatus = async (id: string, newStatus: boolean) => {
         await ionList.current.closeSlidingItems();
-        await updateTodoStatus(id, {
+        await updateRow(id, {
             isDone: newStatus
         });
     }
@@ -44,11 +44,11 @@ const TabTodos: React.FC = () => {
 
             <IonContent fullscreen>
 
-                <IonButton onClick={() => createTodo()}>Add</IonButton>
+                {/*<IonButton onClick={() => createTodo()}>Add</IonButton>*/}
 
                 <IonList ref={ionList}>
                     {/* A cycle that goes through all the tasks for the day and outputs them */}
-                    {todos.map((todo, key) => (
+                    {rows.map((todo, key) => (
                         <IonItemSliding key={key}>
                             <IonItem>
                                 <AppTodo title={todo.values.title}

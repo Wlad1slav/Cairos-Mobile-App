@@ -1,26 +1,26 @@
 import { Storage } from "@ionic/storage";
 import { useEffect, useState } from "react";
 
-const LOCAL_STORAGE_KEY = 'local-storage-key'
+const STORAGE_NAME = 'local-storage'
 
 export interface Item<T> {
     id: string;
     values: T; // Uses the passed interface
 }
 
-export function useStorage<T>(storageName: string) {
+export function useStorage<T>(storageKey: string) {
     const [store, setStore] = useState<Storage>()
     const [rows, setRows] = useState<Item<T>[]>([])
 
     useEffect(() => {
         const initStorage = async () => {
             const newStore = new Storage({
-                name: storageName
+                name: STORAGE_NAME
             });
             const store = await newStore.create();
             setStore(store);
 
-            const storedTools = await store.get(LOCAL_STORAGE_KEY) || [];
+            const storedTools = await store.get(storageKey) || [];
             setRows(storedTools);
         }
         initStorage();
@@ -35,7 +35,7 @@ export function useStorage<T>(storageName: string) {
         const updatedTodos = [...rows, newTodo];
         setRows(updatedTodos);
         console.log(updatedTodos);
-        store?.set(LOCAL_STORAGE_KEY, updatedTodos);
+        store?.set(storageKey, updatedTodos);
     }
 
     /* Update existing row */
@@ -51,8 +51,8 @@ export function useStorage<T>(storageName: string) {
 
         setRows(toUpdate);
 
-        return store?.set(LOCAL_STORAGE_KEY, rows);
+        return store?.set(storageKey, rows);
     }
 
-    return { todos: rows, addTodo: addRow, updateTodoStatus: updateRow }
+    return { rows: rows, addRow: addRow, updateRow: updateRow }
 }
