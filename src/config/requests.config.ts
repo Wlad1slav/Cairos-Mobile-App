@@ -34,7 +34,7 @@ const requests: RequestsConfig = {
     },
     post: {
         auth: {
-            register: '',
+            register: `${appConfig.apiRequestUrl}/app/user/register`,
             login: '',
         }
     },
