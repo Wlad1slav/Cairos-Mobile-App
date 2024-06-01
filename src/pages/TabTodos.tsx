@@ -1,7 +1,6 @@
 import {
-    IonButton,
-    IonContent, IonIcon,
-    IonItem, IonItemOption, IonItemOptions,
+    IonIcon, IonItemOptions,
+    IonItem, IonItemOption,
     IonItemSliding, IonList, IonPage
 } from '@ionic/react';
 
@@ -14,6 +13,7 @@ import AppTodo from "../components/AppTodo";
 import {TodoItem} from "../components/AppTodo";
 
 import {useStorage} from "../hooks/useStorage";
+import AppContent from "../components/AppContent";
 
 
 const TabTodos: React.FC = () => {
@@ -43,7 +43,7 @@ const TabTodos: React.FC = () => {
 
             <AppHeader/>
 
-            <IonContent fullscreen>
+            <AppContent>
 
                 {/*<IonButton onClick={() => createTodo()}>Add</IonButton>*/}
 
@@ -79,7 +79,7 @@ const TabTodos: React.FC = () => {
 
                 </IonList>
 
-            </IonContent>
+            </AppContent>
 
         </IonPage>
     );

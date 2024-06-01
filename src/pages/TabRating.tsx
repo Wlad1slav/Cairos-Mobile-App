@@ -1,15 +1,16 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
-import AppHeader from "../components/AppHeader";
 import React from "react";
+import { IonPage } from '@ionic/react';
+
+import AppContent from "../components/AppContent";
+import AppHeader from "../components/AppHeader";
 
 const TabRating: React.FC = () => {
     return (
         <IonPage>
             <AppHeader/>
-            <IonContent fullscreen>
+            <AppContent>
                 <h1>Rating</h1>
-            </IonContent>
+            </AppContent>
         </IonPage>
     );
 };
