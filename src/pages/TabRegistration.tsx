@@ -13,7 +13,7 @@ const TabRegistration: React.FC = () => {
     return (
         <IonPage>
             <AppHeader />
-            <AppContent requiredAuthorization={false}>
+            <AppContent requiredAuthorization={false} guest={true}>
                 <FormRegister request={requests.post.auth.register} />
             </AppContent>
         </IonPage>

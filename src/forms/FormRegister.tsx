@@ -66,6 +66,7 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
                 // If the registration was successful
                 if (response.status === 201) {
                     setNewRows([response.data.access_token]);
+                    window.location.href = '/';
                 }
             })
             .catch(error => {
@@ -75,8 +76,6 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
 
             });
     };
-
-    console.log(errors.email);
 
     return (
         <form onSubmit={submit}>

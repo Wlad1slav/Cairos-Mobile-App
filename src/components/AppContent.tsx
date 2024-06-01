@@ -1,16 +1,19 @@
 import React, {ReactNode, useEffect, useState} from "react";
 import {IonContent} from "@ionic/react";
 
-import Item from "../hooks/item.interface";
 import {useStorage} from "../hooks/useStorage";
+
+import AppAuthOffer from "./AppAuthOffer";
+
 import storageKeys from "../config/storages.config";
 
 interface AppContent {
     children: ReactNode;
     requiredAuthorization?: boolean;
+    guest?: boolean;
 }
 
-const AppContent: React.FC<AppContent> = ({ children, requiredAuthorization = true }) => {
+const AppContent: React.FC<AppContent> = ({ children, requiredAuthorization = true, guest = false }) => {
 
     const [isAuthorized, setAuthorized] = useState(false);
 
@@ -22,12 +25,17 @@ const AppContent: React.FC<AppContent> = ({ children, requiredAuthorization = tr
     useEffect(() => {
         if (rows.length !== 0) {
             setAuthorized(true);
+            if (guest) {
+                // If the page is created for unregistered users,
+                // then registered users will be redirected to the main page
+                window.location.href = '/';
+            }
         }
     }, [rows]);
 
     return (
         <IonContent fullscreen>
-            {(!requiredAuthorization || isAuthorized) ? children : 'Авторизуйтесь будь ласка'}
+            {(!requiredAuthorization || isAuthorized) ? children : <AppAuthOffer />}
         </IonContent>
     )
 }
