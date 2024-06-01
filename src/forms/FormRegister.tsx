@@ -7,7 +7,7 @@ import AppInput from "../components/AppInput";
 
 import { validateEmail, validatePassword, validatePasswordRepeat } from "../utils/validation";
 
-import {useStorage} from "../../hooks/useStorage";
+import {useStorage} from "../hooks/useStorage";
 
 interface FormProps {
     request: string;

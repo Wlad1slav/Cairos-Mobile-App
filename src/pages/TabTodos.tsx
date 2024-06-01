@@ -1,4 +1,5 @@
 import {
+    IonButton,
     IonContent, IonIcon,
     IonItem, IonItemOption, IonItemOptions,
     IonItemSliding, IonList, IonPage
@@ -12,7 +13,7 @@ import AppHeader from "../components/AppHeader";
 import AppTodo from "../components/AppTodo";
 import {TodoItem} from "../components/AppTodo";
 
-import {useStorage} from "../../hooks/useStorage";
+import {useStorage} from "../hooks/useStorage";
 
 
 const TabTodos: React.FC = () => {
