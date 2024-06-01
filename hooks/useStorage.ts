@@ -1,12 +1,9 @@
 import {Storage} from "@ionic/storage";
 import {useEffect, useState} from "react";
 
-const STORAGE_NAME = 'local-storage'
+import Item from "./item.interface";
 
-export interface Item<T> {
-    id: string;
-    values: T;
-}
+const STORAGE_NAME = 'local-storage'
 
 /**
  * Custom hook for managing local storage with Ionic Storage.
