@@ -1,5 +1,5 @@
 import {
-    IonButton, IonContent, IonIcon,
+    IonContent, IonIcon,
     IonItem, IonItemOption, IonItemOptions,
     IonItemSliding, IonList, IonPage
 } from '@ionic/react';
@@ -10,14 +10,14 @@ import {checkmark, returnDownBack} from "ionicons/icons";
 
 import AppHeader from "../components/AppHeader";
 import AppTodo from "../components/AppTodo";
-import {TodoValues} from "../components/AppTodo";
+import {TodoItem} from "../components/AppTodo";
 
 import {useStorage} from "../../hooks/useStorage";
 
 
 const TabTodos: React.FC = () => {
 
-    const {rows, addRow, updateRow} = useStorage<TodoValues>('tips_for_today');
+    const {rows, addRow, updateRow} = useStorage<TodoItem>('tips_for_today');
 
     const ionList = useRef(null as any);
 

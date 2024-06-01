@@ -5,14 +5,14 @@ import './AppTodo.scss';
 import '../stylesheet/container.scss';
 
 
-export interface TodoValues {
+export interface TodoItem {
     title: string
     content: string
     image: string
     isDone: boolean
 }
 
-interface Todo extends Omit<TodoValues, 'content'> {
+interface Todo extends Omit<TodoItem, 'content'> {
     children: ReactNode
 }
 
