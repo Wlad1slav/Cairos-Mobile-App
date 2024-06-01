@@ -2,7 +2,6 @@ import {IonText} from "@ionic/react";
 import {ReactNode} from "react";
 
 import './AppTodo.scss';
-import '../stylesheet/container.scss';
 
 
 export interface TodoItem {
