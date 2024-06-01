@@ -6,6 +6,8 @@ import AppContent from "../components/AppContent";
 import AppHeader from "../components/AppHeader";
 
 import authorizedRequest from "../utils/authorizedRequest";
+import requests from "../config/requests.config";
+import storageKeys from "../config/storages.config";
 
 interface ProfileData {
     email: string;
@@ -15,11 +17,9 @@ interface ProfileData {
 const TabProfile: React.FC = () => {
 
     // Obtaining a token for the request API
-    const {rows} = useStorage<string>('token');
+    const {rows} = useStorage<string>(storageKeys.token);
 
     const token = rows[0]?.values;
-
-    const getDataRequest = 'http://127.0.0.1:8000/api/app/user/profile';
 
     const [profileData, setProfileData] = useState<ProfileData>({
         email: 'Loading...',
@@ -29,7 +29,7 @@ const TabProfile: React.FC = () => {
     useEffect(() => {
         if (token) {
             // When the token is received, an API request is made to the server to receive the user's token
-            const response = authorizedRequest(token, getDataRequest);
+            const response = authorizedRequest(token, requests.get.profile.data);
             response.then((value) => {
                 setProfileData(value);
             });

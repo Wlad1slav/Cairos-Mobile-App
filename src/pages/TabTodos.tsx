@@ -10,15 +10,17 @@ import {checkmark, returnDownBack} from "ionicons/icons";
 
 import AppHeader from "../components/AppHeader";
 import AppTodo from "../components/AppTodo";
-import {TodoItem} from "../components/AppTodo";
-
-import {useStorage} from "../hooks/useStorage";
 import AppContent from "../components/AppContent";
+
+import {TodoItem} from "../components/AppTodo";
+import {useStorage} from "../hooks/useStorage";
+
+import storageKeys from "../config/storages.config";
 
 
 const TabTodos: React.FC = () => {
 
-    const {rows, addRow, updateRow} = useStorage<TodoItem>('tips_for_today');
+    const {rows, addRow, updateRow} = useStorage<TodoItem>(storageKeys.todos);
 
     const ionList = useRef(null as any);
 
