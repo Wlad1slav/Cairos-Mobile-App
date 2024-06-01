@@ -1,17 +1,23 @@
 import React, { useState } from "react";
-import { IonButton, IonTitle } from '@ionic/react';
-import { lockClosed, mail } from "ionicons/icons";
+import {IonButton, IonTitle} from '@ionic/react';
+import {lockClosed, mail, warning} from "ionicons/icons";
 import axios from "axios";
 
 import AppInput from "../components/AppInput";
+import AppNotification from "../components/AppNotification";
 
 import { validateEmail, validatePassword, validatePasswordRepeat } from "../utils/validation";
-
 import {useStorage} from "../hooks/useStorage";
+
 import storageKeys from "../config/storages.config";
 
 interface FormProps {
     request: string;
+}
+
+interface FormErrors {
+    email: Array<string>;
+    password: Array<string>;
 }
 
 // Data for the registration request API
@@ -36,7 +42,10 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
     });
 
     // Errors during registration
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState<FormErrors>({
+        email: [],
+        password: []
+    });
 
     // Storing data while filling in the fields
     const handleChange = (e: CustomEvent) => {
@@ -61,28 +70,39 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
             })
             .catch(error => {
                 // If there are problems during registration
+                console.log(error)
                 setErrors(error.response.data);
-                console.log(errors);
+
             });
     };
+
+    console.log(errors.email);
 
     return (
         <form onSubmit={submit}>
             <IonTitle size='large' color='dark'>Реєстрація</IonTitle>
 
-            <AppInput
-                name='email'
-                type='email'
-                label='Електрона пошта'
-                helperText='Введіть дійсну електронну адресу'
-                errorText='Недійсна електронна адреса'
-                placeholder='example@gmail.com'
-                icon={mail}
-                validateFunction={validateEmail}
-                onIonChange={handleChange}
-            />
+            <div className='section-input'>
+                <AppInput
+                    name='email'
+                    type='email'
+                    label='Електрона пошта'
+                    helperText='Введіть дійсну електронну адресу'
+                    errorText='Недійсна електронна адреса'
+                    placeholder='example@gmail.com'
+                    icon={mail}
+                    validateFunction={validateEmail}
+                    onIonChange={handleChange}
+                />
 
-            <div className="password-input">
+                {
+                    errors.email.map((error) =>
+                        <AppNotification icon={warning} color={"danger"}>{error}</AppNotification>
+                    )
+                }
+            </div>
+
+            <div className="section-input">
                 <AppInput
                     name='password'
                     type='password'
@@ -106,6 +126,12 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
                     validateFunction={validatePasswordRepeat}
                     onIonChange={handleChange}
                 />
+
+                {
+                    errors.password.map((error) =>
+                        <AppNotification icon={warning} color={"danger"}>{error}</AppNotification>
+                    )
+                }
             </div>
 
             <div className="actions">

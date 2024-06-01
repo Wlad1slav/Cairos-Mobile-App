@@ -1,0 +1,50 @@
+@import "../stylesheet/globals";
+
+.notification {
+  display: flex;
+  gap: 5px;
+  border: 2px solid;
+  padding: 5px;
+  border-radius: 5px;
+
+  &.danger {
+    border-color: var(--ion-color-danger);
+    color: var(--ion-color-danger);
+  }
+
+  &.success {
+    border-color: var(--ion-color-success);
+    color: var(--ion-color-success);
+  }
+
+  &.warning {
+    border-color: var(--ion-color-warning);
+    color: var(--ion-color-warning);
+  }
+
+  &.primary {
+    border-color: var(--ion-color-primary);
+    color: var(--ion-color-primary);
+  }
+
+  &.secondary {
+    border-color: var(--ion-color-secondary);
+    color: var(--ion-color-secondary);
+  }
+
+  &.tertiary {
+    border-color: var(--ion-color-tertiary);
+    color: var(--ion-color-tertiary);
+  }
+
+  &.medium {
+    border-color: var(--ion-color-medium);
+    color: var(--ion-color-medium);
+  }
+
+  &.light {
+    border-color: var(--ion-color-light);
+    color: var(--ion-color-light);
+  }
+
+}
