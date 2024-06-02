@@ -1,6 +1,5 @@
 interface StorageKeysConfig {
-    token: string;
-    todos: string;
+    [key: string]: string;
 }
 
 const storageKeys: StorageKeysConfig = {

@@ -10,6 +10,7 @@ import AppInput from "../components/AppInput";
 import { validateEmail, validatePassword } from "../utils/validation";
 
 import routes from "../config/routes.config";
+import storageKeys from "../config/storages.config";
 
 interface FormProps {
     request: string;
@@ -23,7 +24,7 @@ interface LoginData {
 
 const FormLogin: React.FC<FormProps> = ({ request }) => {
     // The key under which the token is stored in the storage
-    const storageKey = 'token';
+    const storageKey = storageKeys.token;
 
     // A table in local storage to store the user's authorization token
     const { setNewRows } = useStorage<string>(storageKey);

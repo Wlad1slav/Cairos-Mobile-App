@@ -1,25 +1,9 @@
 import appConfig from "../../app.config";
 
 interface RequestsConfig {
-    get: {
-        profile: {
-            data: string;
-        };
-        todos: {
-            newTodo: string;
-        };
-    };
-    post: {
-        auth: {
-            register: string;
-            login: string;
-        };
-    };
-    pull: {
-        todos: {
-            changeStatus: string;
-        };
-    };
+    get: Record<string, any>;
+    post: Record<string, any>;
+    pull: Record<string, any>;
     delete: Record<string, any>;
 }
 
