@@ -11,8 +11,6 @@ import {
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
-import {alarmSharp, home, person, star} from 'ionicons/icons';
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -32,13 +30,6 @@ import '@ionic/react/css/display.css';
 /* SCSS for Cairosu */
 import './stylesheet/app.scss'
 
-/**
- * Ionic Dark Mode
- * -----------------------------------------------------
- * For more info, please see:
- * https://ionicframework.com/docs/theming/dark-mode
- */
-
 /* import '@ionic/react/css/palettes/dark.always.css'; */
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import '@ionic/react/css/palettes/dark.system.css';
@@ -46,89 +37,50 @@ import '@ionic/react/css/palettes/dark.system.css';
 /* Theme variables */
 import './theme/variables.css';
 
-/* App tabs */
-import TabTodos from './pages/TabTodos';
-import TabHome from "./pages/TabHome";
-import TabRating from "./pages/TabRating";
-import TabProfile from "./pages/TabProfile";
-import TabRegistration from "./pages/TabRegistration";
-import TabAuthorization from "./pages/TabAuthorization";
+import routes from "./config/routes.config";
+import navigationElements from "./config/navigation.config";
 
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <IonReactRouter>
+    <IonApp>
+      <IonReactRouter>
 
-      <IonTabs>
+        <IonTabs>
 
-        <IonRouterOutlet>
+          <IonRouterOutlet>
+            {
+              // Generation of all routes
+              Object.keys(routes).map((key) => {
+                const { url, tabComponent } = routes[key];
+                return <Route exact path={url} component={tabComponent} />;
+              })
+            }
 
-          {/* TODO */}
-          <Route exact path="/home">
-            <TabHome />
-          </Route>
+            {/* Redirect to the main page */}
+            <Route exact path="/">
+              <Redirect to={routes.base.url} />
+            </Route>
+          </IonRouterOutlet>
 
-          {/* A page with reminders, advice on what to do for the user today */}
-          <Route exact path="/reminds">
-            <TabTodos />
-          </Route>
+          <IonTabBar slot="bottom">
+            {
+              // Generation of navigation elements
+              Object.keys(navigationElements).map((key) => {
+                const { label, href, icon } = navigationElements[key];
+                return (
+                    <IonTabButton tab={key} href={href}>
+                      <IonIcon aria-hidden="true" icon={icon} />
+                      <IonLabel>{label}</IonLabel>
+                    </IonTabButton>
+                );
+              })
+            }
+          </IonTabBar>
 
-          {/* TODO */}
-          <Route exact path="/rating">
-            <TabRating />
-          </Route>
-
-          {/* TODO */}
-          <Route exact path="/profile">
-            <TabProfile />
-          </Route>
-
-          <Route exact path="/register">
-            <TabRegistration />
-          </Route>
-
-          <Route exact path="/auth">
-            <TabAuthorization />
-          </Route>
-
-          {/* Redirect to the main page */}
-          <Route exact path="/">
-            <Redirect to="/home" />
-          </Route>
-        </IonRouterOutlet>
-
-        <IonTabBar slot="bottom">
-
-          <IonTabButton tab="home" href="/home">
-            <IonIcon aria-hidden="true" icon={home} />
-            <IonLabel>Головна</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="reminds" href="/reminds">
-            <IonIcon aria-hidden="true" icon={alarmSharp} />
-            <IonLabel>Нагадування</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="rating" href="/rating">
-            <IonIcon aria-hidden="true" icon={star} />
-            <IonLabel>Рейтинг</IonLabel>
-          </IonTabButton>
-
-          <IonTabButton tab="profile" href="/profile">
-            <IonIcon aria-hidden="true" icon={person} />
-            <IonLabel>Профіль</IonLabel>
-          </IonTabButton>
-
-          {/*<IonTabButton tab="tab4" href="/tab3">*/}
-          {/*  <IonIcon aria-hidden="true" icon={diamond} />*/}
-          {/*  <IonLabel>Преміум</IonLabel>*/}
-          {/*</IonTabButton>*/}
-        </IonTabBar>
-
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
 );
 
 export default App;

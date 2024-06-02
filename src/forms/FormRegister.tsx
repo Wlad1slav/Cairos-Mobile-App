@@ -10,6 +10,7 @@ import { validateEmail, validatePassword, validatePasswordRepeat } from "../util
 import {useStorage} from "../hooks/useStorage";
 
 import storageKeys from "../config/storages.config";
+import routes from "../config/routes.config";
 
 interface FormProps {
     request: string;
@@ -139,7 +140,7 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
                     color='secondary'
                 >Зареєструватися</IonButton>
 
-                <a href="#">Вже зареєстровані?</a>
+                <a href={routes.authorization.url}>Вже зареєстровані?</a>
             </div>
         </form>
     );

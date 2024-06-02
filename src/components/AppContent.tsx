@@ -6,6 +6,7 @@ import {useStorage} from "../hooks/useStorage";
 import AppAuthOffer from "./AppAuthOffer";
 
 import storageKeys from "../config/storages.config";
+import routes from "../config/routes.config";
 
 interface AppContent {
     children: ReactNode;
@@ -28,7 +29,7 @@ const AppContent: React.FC<AppContent> = ({ children, requiredAuthorization = tr
             if (guest) {
                 // If the page is created for unregistered users,
                 // then registered users will be redirected to the main page
-                window.location.href = '/';
+                window.location.href = routes.base.url;
             }
         }
     }, [rows]);

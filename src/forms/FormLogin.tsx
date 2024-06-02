@@ -1,14 +1,15 @@
 import React, { useState } from "react";
+import { useStorage } from "../hooks/useStorage";
 import { IonButton, IonTitle } from '@ionic/react';
-import {lockClosed, mail, warning} from "ionicons/icons";
 import axios from "axios";
+import {lockClosed, mail, warning} from "ionicons/icons";
 
+import AppNotification from "../components/AppNotification";
 import AppInput from "../components/AppInput";
 
 import { validateEmail, validatePassword } from "../utils/validation";
 
-import { useStorage } from "../hooks/useStorage";
-import AppNotification from "../components/AppNotification";
+import routes from "../config/routes.config";
 
 interface FormProps {
     request: string;
@@ -103,7 +104,7 @@ const FormLogin: React.FC<FormProps> = ({ request }) => {
                     color='secondary'
                 >Увійти</IonButton>
 
-                <a href="/register">Ще немає акаунту?</a>
+                <a href={routes.registration.url}>Ще немає акаунту?</a>
                 {/*<a href="#">Забули пароль?</a>*/}
             </div>
         </form>
