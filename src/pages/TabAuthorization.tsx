@@ -1,23 +1,20 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import ExploreContainer from '../components/ExploreContainer';
+import React from "react";
+import { IonPage } from '@ionic/react';
+
+import AppHeader from "../components/AppHeader";
+import AppContent from "../components/AppContent";
+import FormLogin from "../forms/FormLogin";
+
+import requests from "../config/requests.config";
 
 const TabAuthorization: React.FC = () => {
   return (
-    <IonPage>
-      <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 2</IonTitle>
-        </IonToolbar>
-      </IonHeader>
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Авторизація</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Авторизація" />
-      </IonContent>
-    </IonPage>
+      <IonPage>
+          <AppHeader />
+          <AppContent requiredAuthorization={false} guest={true}>
+              <FormLogin request={requests.post.auth.login} />
+          </AppContent>
+      </IonPage>
   );
 };
 

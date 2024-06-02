@@ -10,8 +10,8 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {alarmSharp, diamond, home, person, settings, star} from 'ionicons/icons';
-import TabTodos from './pages/TabTodos';
+
+import {alarmSharp, home, person, star} from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -45,11 +45,14 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import AppHeader from "./components/AppHeader";
+
+/* App tabs */
+import TabTodos from './pages/TabTodos';
 import TabHome from "./pages/TabHome";
 import TabRating from "./pages/TabRating";
 import TabProfile from "./pages/TabProfile";
 import TabRegistration from "./pages/TabRegistration";
+import TabAuthorization from "./pages/TabAuthorization";
 
 setupIonicReact();
 
@@ -81,9 +84,12 @@ const App: React.FC = () => (
             <TabProfile />
           </Route>
 
-          {/* TODO */}
           <Route exact path="/register">
             <TabRegistration />
+          </Route>
+
+          <Route exact path="/auth">
+            <TabAuthorization />
           </Route>
 
           {/* Redirect to the main page */}
