@@ -53,7 +53,7 @@ const App: React.FC = () => (
               // Generation of all routes
               Object.keys(routes).map((key) => {
                 const { url, tabComponent } = routes[key];
-                return <Route exact path={url} component={tabComponent} />;
+                return <Route exact key={key} path={url} component={tabComponent} />;
               })
             }
 
@@ -69,7 +69,7 @@ const App: React.FC = () => (
               Object.keys(navigationElements).map((key) => {
                 const { label, href, icon } = navigationElements[key];
                 return (
-                    <IonTabButton tab={key} href={href}>
+                    <IonTabButton tab={key} key={key} href={href}>
                       <IonIcon aria-hidden="true" icon={icon} />
                       <IonLabel>{label}</IonLabel>
                     </IonTabButton>
