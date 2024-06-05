@@ -5,14 +5,19 @@ import {useStorage} from "../hooks/useStorage";
 import AppContent from "../components/AppContent";
 import AppHeader from "../components/AppHeader";
 
-import authorizedRequest from "../utils/authorizedRequest";
 import requests from "../config/requests.config";
 import storageKeys from "../config/storages.config";
+import RequestAuthorized from "../utils/request.authorized.class";
 
 interface ProfileData {
     email: string;
     name: string | null;
 }
+
+function isProfileData(value: any): value is ProfileData {
+    return (value && typeof value.email === 'string' && (typeof value.name === 'string' || value.name === null));
+}
+
 
 const TabProfile: React.FC = () => {
 
@@ -28,10 +33,12 @@ const TabProfile: React.FC = () => {
 
     useEffect(() => {
         if (token) {
-            // When the token is received, an API request is made to the server to receive the user's token
-            const response = authorizedRequest(token, requests.get.profile.data);
+            const request = new RequestAuthorized(token);
+            const response = request.get(requests.get.profile.data);
             response.then((value) => {
-                setProfileData(value);
+                if (isProfileData(value)) {
+                    setProfileData(value);
+                }
             });
         }
     }, [token]);
