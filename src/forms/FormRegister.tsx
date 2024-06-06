@@ -6,7 +6,7 @@ import axios from "axios";
 import AppInput from "../components/AppInput";
 import AppNotification from "../components/AppNotification";
 
-import { validateEmail, validatePassword, validatePasswordRepeat } from "../utils/validation";
+import { validateEmail, validatePassword, validatePasswordRepeat } from "../utils/validation.fields";
 import {useStorage} from "../hooks/useStorage";
 
 import storageKeys from "../config/storages.config";

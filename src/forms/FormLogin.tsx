@@ -7,7 +7,7 @@ import {lockClosed, mail, warning} from "ionicons/icons";
 import AppNotification from "../components/AppNotification";
 import AppInput from "../components/AppInput";
 
-import { validateEmail, validatePassword } from "../utils/validation";
+import { validateEmail, validatePassword } from "../utils/validation.fields";
 
 import routes from "../config/routes.config";
 import storageKeys from "../config/storages.config";
