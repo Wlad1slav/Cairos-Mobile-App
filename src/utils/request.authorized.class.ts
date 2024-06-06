@@ -26,13 +26,8 @@ class RequestAuthorized {
      * @returns Response data or undefined in case of an error.
      */
     async get<T>(request: string): Promise<T | undefined> {
-        try {
-            const response: AxiosResponse<T> = await axios.get(request);
-            return response.data;
-        } catch (error) {
-            this.handleError(error);
-            return undefined;
-        }
+        const response: AxiosResponse<T> = await axios.get(request);
+        return response.data;
     }
 
     /**
@@ -42,13 +37,8 @@ class RequestAuthorized {
      * @returns Response data or undefined in case of an error.
      */
     async post<T>(request: string, data: Object): Promise<T | undefined> {
-        try {
-            const response: AxiosResponse<T> = await axios.post(request, data);
-            return response.data;
-        } catch (error) {
-            this.handleError(error);
-            return undefined;
-        }
+        const response: AxiosResponse<T> = await axios.post(request, data);
+        return response.data;
     }
 
     /**
@@ -57,14 +47,9 @@ class RequestAuthorized {
      * @param data - Data to be sent in the body of the request.
      * @returns Response data or undefined in case of an error.
      */
-    async put<T>(request: string, data: Object): Promise<T | undefined> {
-        try {
-            const response: AxiosResponse<T> = await axios.put(request, data);
-            return response.data;
-        } catch (error) {
-            this.handleError(error);
-            return undefined;
-        }
+    async put<T>(request: string, data: Object): Promise<T> {
+        const response: AxiosResponse<T> = await axios.put(request, data);
+        return response.data;
     }
 
     /**
@@ -73,26 +58,8 @@ class RequestAuthorized {
      * @returns Response data or undefined in case of an error.
      */
     async delete<T>(request: string): Promise<T | undefined> {
-        try {
-            const response: AxiosResponse<T> = await axios.delete(request);
-            return response.data;
-        } catch (error) {
-            this.handleError(error);
-            return undefined;
-        }
-    }
-
-    /**
-     * Handles errors from HTTP requests.
-     * @param error - Error object.
-     */
-    private handleError(error: any): void {
-        if (axios.isAxiosError(error)) {
-            console.error(`Error: ${error.response?.status} - ${error.response?.statusText}`);
-            console.error(`Message: ${error.message}`);
-        } else {
-            console.error(`Error: ${error.message}`);
-        }
+        const response: AxiosResponse<T> = await axios.delete(request);
+        return response.data;
     }
 }
 
