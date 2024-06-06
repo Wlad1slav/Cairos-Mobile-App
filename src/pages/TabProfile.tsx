@@ -8,16 +8,7 @@ import AppHeader from "../components/AppHeader";
 import requests from "../config/requests.config";
 import storageKeys from "../config/storages.config";
 import RequestAuthorized from "../utils/request.authorized.class";
-
-interface ProfileData {
-    email: string;
-    name: string | null;
-}
-
-function isProfileData(value: any): value is ProfileData {
-    return (value && typeof value.email === 'string' && (typeof value.name === 'string' || value.name === null));
-}
-
+import {isProfileData} from "../utils/validation.data";
 
 const TabProfile: React.FC = () => {
 
@@ -26,18 +17,21 @@ const TabProfile: React.FC = () => {
 
     const token = rows[0]?.values;
 
-    const [profileData, setProfileData] = useState<ProfileData>({
+    const [authorizedUser, setAuthorizedUser] = useState<UserModel>({
         email: 'Loading...',
-        name: null
+        name: null,
+        birthday_date: null,
+        sex: null,
     });
 
+    // Storing authorized user data
     useEffect(() => {
         if (token) {
             const request = new RequestAuthorized(token);
             const response = request.get(requests.get.profile.data);
             response.then((value) => {
-                if (isProfileData(value)) {
-                    setProfileData(value);
+                if (isProfileData<UserModel>(value)) {
+                    setAuthorizedUser(value);
                 }
             });
         }
@@ -48,7 +42,10 @@ const TabProfile: React.FC = () => {
             <AppHeader/>
             <AppContent>
                 <h1>Профіль</h1>
-                <p>{profileData.email}</p>
+                <p>{authorizedUser.email}</p>
+                <p>{authorizedUser.name}</p>
+                <p>{authorizedUser.sex}</p>
+                <p>{authorizedUser.birthday_date}</p>
             </AppContent>
         </IonPage>
     );
