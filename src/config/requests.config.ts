@@ -24,7 +24,10 @@ const requests: RequestsConfig = {
     },
     pull: {
         todos: {
-            changeStatus: ''
+            changeStatus: `${appConfig.apiRequestUrl}/app/user/profile/update/personal`,
+        },
+        profile: {
+            update: `${appConfig.apiRequestUrl}/app/user/profile/update/personal`,
         }
     },
     delete: {}

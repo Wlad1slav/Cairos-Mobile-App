@@ -1,0 +1,22 @@
+//ion-datetime-button {
+//  display: block;
+//  margin-left: -5px;
+//}
+
+#date-button {
+  margin: 0;
+}
+
+.date-time-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  label {
+    text-align: center;
+  }
+}
+
+form div.actions {
+  justify-content: center!important;
+}
