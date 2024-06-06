@@ -5,8 +5,6 @@ import AppHeader from "../components/AppHeader";
 import FormRegister from "../forms/FormRegister";
 import AppContent from "../components/AppContent";
 
-import "./TabRegistration.scss";
-
 import requests from "../config/requests.config";
 
 const TabRegistration: React.FC = () => {
