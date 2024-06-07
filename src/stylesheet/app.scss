@@ -81,3 +81,17 @@ ion-item-options {
     text-decoration: none;
   }
 }
+
+/* Colors that belong to a certain sex */
+ion-icon.female {
+  color: purple;
+}
+
+ion-icon.male {
+  color: $clr-primary;
+}
+
+ion-icon.intersex {
+  //color: var(--ion-text-color);
+  color: $clr-tertiary;
+}

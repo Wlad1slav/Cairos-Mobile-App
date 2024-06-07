@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { IonPage } from '@ionic/react';
+import {IonButton, IonIcon, IonPage} from '@ionic/react';
 import {useStorage} from "../hooks/useStorage";
 
 import AppContent from "../components/AppContent";
@@ -9,6 +9,10 @@ import requests from "../config/requests.config";
 import storageKeys from "../config/storages.config";
 import RequestAuthorized from "../utils/request.authorized.class";
 import {isProfileData} from "../utils/validation.data";
+
+import './TabProfile.scss';
+import routes from "../config/routes.config";
+import {female, male, transgender} from "ionicons/icons";
 
 const TabProfile: React.FC = () => {
 
@@ -21,7 +25,7 @@ const TabProfile: React.FC = () => {
         email: 'Loading...',
         name: null,
         birthday_date: null,
-        sex: null,
+        sex: 'dont-specify',
     });
 
     // Storing authorized user data
@@ -39,14 +43,64 @@ const TabProfile: React.FC = () => {
 
     return (
         <IonPage>
-            <AppHeader/>
-            <AppContent>
-                <h1>Профіль</h1>
-                <p>{authorizedUser.email}</p>
-                <p>{authorizedUser.name}</p>
-                <p>{authorizedUser.sex}</p>
-                <p>{authorizedUser.birthday_date}</p>
-            </AppContent>
+                <AppHeader/>
+                <AppContent>
+                    <div className="profile">
+
+                        <img className='avatar' src="/base-avatar.webp" alt=""/>
+
+                        <div className="fields">
+                            <div className="field">
+                                <p className="label">пошта</p>
+                                <p className="value">{authorizedUser.email}</p>
+                            </div>
+
+                            {authorizedUser.name && <div className="field">
+                                <p className="label">ім'я</p>
+                                <p>{authorizedUser.name}</p>
+                            </div>}
+
+                            {authorizedUser.sex !== 'dont-specify' && <div className="field">
+                                <p className="label">стать</p>
+                                <p className="value">
+                                    {
+                                        authorizedUser.sex === 'male' &&
+                                        <>
+                                            <IonIcon icon={male} className='male'/>
+                                            Чоловік
+                                        </>
+                                    }
+
+                                    {
+                                        authorizedUser.sex === 'female' &&
+                                        <>
+                                            <IonIcon icon={female} className='female'/>
+                                            Жінка
+                                        </>
+                                    }
+
+                                    {
+                                        authorizedUser.sex === 'other' &&
+                                        <>
+                                            <IonIcon icon={transgender} className='intersex'/>
+                                            Нетрадиційна
+                                        </>
+                                    }
+                                </p>
+                            </div>}
+
+                            {authorizedUser.birthday_date && <div className="field">
+                                <p className="label">дата народження</p>
+                                <p>{authorizedUser.birthday_date}</p>
+                            </div>}
+                        </div>
+
+                        <IonButton href={routes.userPersonal.url} color='secondary'>
+                            Заповнити
+                        </IonButton>
+
+                    </div>
+                </AppContent>
         </IonPage>
     );
 };
