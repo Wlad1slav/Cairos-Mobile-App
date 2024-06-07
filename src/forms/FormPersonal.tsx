@@ -149,7 +149,7 @@ const FormPersonal: React.FC<FormProps> = ({ request }) => {
             />
 
             <div className='date-time-field'>
-                <label htmlFor="birthday">День народження</label>
+                <label htmlFor="birthday">Дата народження</label>
                 <IonDatetimeButton datetime="birthday"></IonDatetimeButton>
                 <IonModal keepContentsMounted={true}>
                     <IonDatetime
@@ -161,7 +161,7 @@ const FormPersonal: React.FC<FormProps> = ({ request }) => {
                         preferWheel={true}
                         onIonChange={handleChange}
                     >
-                        <span slot="title">Виберіть свій день народження</span>
+                        <span slot="title">Вкажіть дату свого народження</span>
                     </IonDatetime>
                 </IonModal>
             </div>
