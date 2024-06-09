@@ -1,0 +1,27 @@
+@import "../stylesheet/globals";
+
+.tab-header {
+  background-color: transparentize($clr-primary, 0.9);
+
+  display: flex;
+  flex-direction: column;
+
+  color: var(--ion-color-primary);
+}
+
+.middle-content {
+  //color: var(--ion-color-tertiary);
+  color: darken($clr-secondary, 20%);
+  //background-color: transparentize($clr-tertiary, 0.8);
+  background-color: transparentize($clr-secondary, 0.93);
+  padding: 5px;
+  border-bottom: 2px solid $clr-secondary;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px;
+}
+

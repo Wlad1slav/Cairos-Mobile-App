@@ -1,0 +1,40 @@
+@import "../stylesheet/globals";
+
+.panel--concentration {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+
+  .blocks {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  p, h1, h2, h3 { margin: 0; }
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    &.middle {
+      border-inline: 1px solid;
+      padding-inline: 5px;
+    }
+  }
+
+  h1, h2, h3 { border-bottom: 1px solid; }
+
+  p {
+    &.accent {
+      font-size: $font-base-size + 4;
+      font-weight: 600;
+    }
+
+    &:not(.accent) {
+      font-size: $font-base-size - 4;
+    }
+  }
+
+
+}

@@ -19,10 +19,12 @@
     /* Tertiary */
     --ion-color-tertiary: #65897B;
     --ion-color-tertiary-rgb: 101,137,123;
-    --ion-color-tertiary-contrast: #000000;
+    --ion-color-tertiary-contrast: white;
     --ion-color-tertiary-contrast-rgb: 0,0,0;
     --ion-color-tertiary-shade: #59796c;
     --ion-color-tertiary-tint: #749588;
+
+    --ion-text-color: rgb(30,30,30);
 
     /* Color tab bar elements */
     /*--ion-tab-bar-color: var(--ion-color-primary-transparent);*/

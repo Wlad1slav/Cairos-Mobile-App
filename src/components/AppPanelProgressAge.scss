@@ -1,0 +1,52 @@
+@import "../stylesheet/globals";
+
+.panel--progress-age {
+  ion-progress-bar::part(track) {
+    //background: transparentize($clr-tertiary, 0.5);
+    //border-right: 8px solid $clr-secondary;
+  }
+
+  ion-progress-bar::part(progress) {
+    background: $clr-primary;
+  }
+
+  ion-progress-bar::part(stream) {
+    background-image: radial-gradient(ellipse at center, $clr-secondary 0%, $clr-secondary 30%, transparent 30%);
+  }
+
+  ion-progress-bar {
+    height: 8px;
+  }
+
+  .years-all {
+    display: flex;
+    justify-content: space-between;
+    opacity: 0.2;
+
+    p {
+      font-size: 8px;
+      margin: 0;
+    }
+  }
+
+  .dayer {
+    text-align: center;
+
+    h3, p {
+      margin: 0;
+      color: var(--ion-color-primary);
+    }
+
+    h3 {
+      font-size: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    p {
+      font-size: $font-base-size - 4;
+    }
+  }
+}

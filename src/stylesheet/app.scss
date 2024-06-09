@@ -92,6 +92,24 @@ ion-icon.male {
 }
 
 ion-icon.intersex {
-  //color: var(--ion-text-color);
   color: $clr-tertiary;
+}
+
+/* Styles for creating a page structure */
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  .block {
+    border: 1px solid $clr-primary;
+    padding: 5px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .subblock {
+      border-bottom: 1px solid $clr-primary;
+    }
+  }
 }

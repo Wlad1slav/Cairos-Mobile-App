@@ -1,0 +1,13 @@
+@import "../stylesheet/globals";
+
+.hour-before-sleep {
+  display: flex;
+  align-items: center;
+  //justify-content: center;
+  gap: 5px;
+
+  p {
+    margin: 0;
+    font-size: $font-base-size - 2;
+  }
+}
