@@ -6,9 +6,24 @@ import {hourglass} from "ionicons/icons";
 import './AppPanelProgressAge.scss';
 
 interface ProgressYearsProps {
+    birthday?: string | null;
 }
 
-const AppPanelProgressAge: React.FC<ProgressYearsProps> = () => {
+const AppPanelProgressAge: React.FC<ProgressYearsProps> = ({birthday = 'Loading...'}) => {
+
+    const birthdayDate = new Date(birthday ?? '');
+    const todayDate = new Date();
+
+    // The date of the 100th anniversary
+    const hundredYearsDate = new Date(birthdayDate);
+    hundredYearsDate.setFullYear(birthdayDate.getFullYear() + 100);
+
+    // The difference is in milliseconds
+    const timeDifference = hundredYearsDate.getTime() - todayDate.getTime();
+
+    // Number of days
+    const daysToHundredYears = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
     return (
         <div className="panel--progress-age">
             <IonProgressBar value={0.5} buffer={1}></IonProgressBar>
@@ -29,7 +44,7 @@ const AppPanelProgressAge: React.FC<ProgressYearsProps> = () => {
             <div className="dayer">
                 <h3>
                     <IonIcon icon={hourglass} />
-                    9,125
+                    {daysToHundredYears}
                 </h3>
                 <p>днів до 100 років</p>
             </div>
