@@ -3,15 +3,30 @@ import { IonIcon } from "@ionic/react";
 import { arrowForward } from "ionicons/icons";
 
 import './AppPanelProgressWeek.scss';
+import loadLocalization from "../lang/index.localization";
+import appConfig from "../config/app.config";
 
 const AppPanelProgressWeek: React.FC = () => {
     const lastDayOfWeek = 7;
     const todayDate = new Date();
     const [dayNumber, setDay] = useState(todayDate.getDay() || lastDayOfWeek);
+    const [localization, setLocalization] = useState<any>(null);
 
     useEffect(() => {
         if (dayNumber === 0) setDay(lastDayOfWeek);
     }, [dayNumber]);
+
+    useEffect(() => {
+        const loadLoc = async () => {
+            const loc = await loadLocalization(appConfig.language);
+            setLocalization(loc.default);
+        };
+        loadLoc();
+    }, []);
+
+    if (!localization) {
+        return <div>Loading...</div>; // Show a loading state while localization is being loaded
+    }
 
     const daysOfWeek = [1, 2, 3, 4, 5, 6, 7];
 
@@ -28,10 +43,10 @@ const AppPanelProgressWeek: React.FC = () => {
                 ))}
             </div>
             <div className="dayer">
-                <b>П'ятниця</b>
+                <b>{localization.daysOfWeek[dayNumber as keyof typeof localization.daysOfWeek]}</b>
                 <IonIcon icon={arrowForward} />
                 <p>
-                    {lastDayOfWeek + 1 - dayNumber} {lastDayOfWeek + 1 - dayNumber === 1 ? 'день' : 'дня'} до кінця тижня
+                    {localization.untilEndOfWeek(dayNumber)}
                 </p>
             </div>
         </div>
