@@ -2,17 +2,18 @@ import React, {useEffect, useState} from "react";
 import {IonButton, IonIcon, IonPage} from '@ionic/react';
 import {useStorage} from "../hooks/useStorage";
 
+import {female, male, transgender} from "ionicons/icons";
+
 import AppContent from "../components/AppContent";
 import AppHeader from "../components/AppHeader";
 
 import requests from "../config/requests.config";
 import storageKeys from "../config/storages.config";
+import routes from "../config/routes.config";
 import RequestAuthorized from "../utils/request.authorized.class";
 import {isProfileData} from "../utils/validation.data";
 
 import './TabProfile.scss';
-import routes from "../config/routes.config";
-import {female, male, transgender} from "ionicons/icons";
 
 const TabProfile: React.FC = () => {
 

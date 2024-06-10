@@ -1,4 +1,4 @@
-import appConfig from "../../app.config";
+import appConfig from "./app.config";
 
 interface RequestsConfig {
     get: Record<string, any>;
