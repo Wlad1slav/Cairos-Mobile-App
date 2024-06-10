@@ -24,9 +24,11 @@ const AppPanelProgressAge: React.FC<ProgressYearsProps> = ({birthday = 'Loading.
     // Number of days
     const daysToHundredYears = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
 
+    const yearsOld = todayDate.getFullYear() - birthdayDate.getFullYear();
+
     return (
         <div className="panel--progress-age">
-            <IonProgressBar value={0.5} buffer={1}></IonProgressBar>
+            <IonProgressBar value={yearsOld/100} buffer={1}></IonProgressBar>
             <div className="years-all">
                 <p>0.</p>
                 <p>10</p>
