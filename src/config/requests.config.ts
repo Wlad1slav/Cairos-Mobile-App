@@ -20,6 +20,9 @@ const requests: RequestsConfig = {
         auth: {
             register: `${appConfig.apiRequestUrl}/app/user/register`,
             login: `${appConfig.apiRequestUrl}/app/user/login`,
+        },
+        concentration: {
+            store: `${appConfig.apiRequestUrl}/app/concentration/store`
         }
     },
     pull: {

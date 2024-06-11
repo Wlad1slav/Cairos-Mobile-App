@@ -27,6 +27,10 @@
 
   p {
     &.accent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
       font-size: $font-base-size + 4;
       font-weight: 600;
     }
