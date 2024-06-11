@@ -15,6 +15,8 @@ interface AppInput {
     validateFunction?: (value: string) => RegExpMatchArray | boolean | null;
     maxlength?: number;
     minlength?: number;
+    max?: number;
+    min?: number;
     counter?: boolean;
     onIonChange?: (e: CustomEvent) => void | undefined;
 }
@@ -32,6 +34,8 @@ const AppInput: React.FC<AppInput> = ({
                                           validateFunction = () => { return true; },
                                           maxlength = 254,
                                           minlength,
+                                          max,
+                                          min,
                                           counter = false,
                                           onIonChange
                                       }) => {
@@ -64,6 +68,8 @@ const AppInput: React.FC<AppInput> = ({
             placeholder={placeholder}
             maxlength={maxlength}
             minlength={minlength}
+            max={max}
+            min={min}
             className={`${isValid === false && 'ion-invalid'} ${isTouched && 'ion-touched'}`}
             onIonInput={(event) => validate(event as any)}
             onIonBlur={() => markTouched()}
