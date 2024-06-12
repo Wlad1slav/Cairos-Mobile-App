@@ -4,7 +4,8 @@ interface StorageKeysConfig {
 
 const storageKeys: StorageKeysConfig = {
     token: 'token',
-    todos: 'tips_for_today'
+    todos: 'tips_for_today',
+    concentrationLevel: 'concentration_level'
 }
 
 export default storageKeys;
