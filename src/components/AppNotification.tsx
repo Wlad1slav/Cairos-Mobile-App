@@ -8,12 +8,13 @@ interface AppNotification {
     children: ReactNode;
     color?: PredefinedColors;
     icon?: string;
+
 }
 
 const AppNotification: React.FC<AppNotification> = ({children, icon, color = 'primary'}) => {
     return (
         <div className={`notification ${color}`}>
-            <IonIcon icon={icon} color={color} />
+            <IonIcon icon={icon} color={color} size={'large'} />
             {children}
         </div>
     );
