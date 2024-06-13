@@ -10,18 +10,21 @@
 }
 
 .middle-content {
-  //color: var(--ion-color-tertiary);
   color: darken($clr-secondary, 20%);
-  //background-color: transparentize($clr-tertiary, 0.8);
   background-color: transparentize($clr-secondary, 0.93);
   padding: 5px;
   border-bottom: 2px solid $clr-secondary;
+
+  ion-fab-button {
+    p {
+      color: darken($clr-secondary, 30%);
+    }
+  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  padding: 10px;
+  gap: 15px;
 }
 
