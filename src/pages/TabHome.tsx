@@ -18,6 +18,7 @@ import RequestAuthorized from "../utils/request.authorized.class";
 import {isProfileData} from "../utils/validation.data";
 
 import './TabHome.scss';
+import AppPanelActions from "../components/AppPanelActions";
 
 const TabHome: React.FC = () => {
 
@@ -73,23 +74,7 @@ const TabHome: React.FC = () => {
                 <div className="content">
                     <AppCairosAccent />
 
-                    {/*<AppRole />*/}
-                    {/*<AppRole />*/}
-                    {/*<AppRole />*/}
-
-                    <IonList>
-                        <IonItem>
-                            <AppRole />
-                        </IonItem>
-
-                        <IonItem>
-                            <AppRole />
-                        </IonItem>
-
-                        <IonItem>
-                            <AppRole />
-                        </IonItem>
-                    </IonList>
+                    <AppPanelActions />
                 </div>
 
             </AppContent>

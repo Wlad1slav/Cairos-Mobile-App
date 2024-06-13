@@ -1,0 +1,37 @@
+@import "../stylesheet/globals";
+
+.panel--actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 7px;
+
+    box-shadow: 0 5px 20px rgb(200,200,200);
+    border-block: 1px solid transparentize($clr-tertiary, 0.5);
+
+    .label {
+      //width: 100px;
+      display: flex;
+      align-items: center;
+      border-right: 2px solid darken($clr-tertiary, 10%);
+      background: transparentize($clr-tertiary, 0.5);
+      padding-right: 5px;
+
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      h3 {
+        font-size: 10px;
+      }
+    }
+
+    .essence {
+      padding-block: 5px;
+    }
+  }
+}
