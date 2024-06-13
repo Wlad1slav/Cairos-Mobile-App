@@ -5,16 +5,13 @@ import { arrowForward } from "ionicons/icons";
 import './AppPanelProgressWeek.scss';
 import loadLocalization from "../lang/index.localization";
 import appConfig from "../config/app.config";
+import getWeekDay from "../utils/datetime.getWeekDay";
 
 const AppPanelProgressWeek: React.FC = () => {
-    const lastDayOfWeek = 7;
-    const todayDate = new Date();
-    const [dayNumber, setDay] = useState(todayDate.getDay() || lastDayOfWeek);
+
     const [localization, setLocalization] = useState<any>(null);
 
-    useEffect(() => {
-        if (dayNumber === 0) setDay(lastDayOfWeek);
-    }, [dayNumber]);
+    const dayNumber = getWeekDay();
 
     useEffect(() => {
         const loadLoc = async () => {
