@@ -2,36 +2,35 @@
 
 .cariros-accent {
   display: flex;
-  gap: 15px;
-  border-bottom: 1px dotted;
+  flex-direction: column;
   padding: 5px;
 
   .short-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1 {
+
+    h2 {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       margin: 0;
-      font-weight: 400;
-      font-size: 20px;
       border-bottom: 2px solid var(--ion-color-tertiary);
-    }
 
-    span {
-      font-size: 30px;
-      font-weight: 1000;
-      color: var(--ion-color-tertiary);
+      span {
+        font-size: 30px;
+        font-weight: 1000;
+        color: var(--ion-color-tertiary);
+      }
     }
   }
 
   .description {
     font-size: $font-base-size - 4;
-    text-align: right;
+    text-align: center;
     font-weight: 600;
     color: var(--ion-color-medium);
+    margin-bottom: 0;
   }
 }

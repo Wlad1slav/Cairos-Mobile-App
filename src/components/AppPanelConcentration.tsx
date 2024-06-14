@@ -40,6 +40,9 @@ const AppPanelConcentration: React.FC = () => {
 
     return (
         <div className='panel--concentration'>
+            <span>
+                🎯
+            </span>
             <h2>Рівень концентраії</h2>
             <div className="blocks">
                 <div className="item">

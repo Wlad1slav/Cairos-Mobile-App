@@ -9,17 +9,47 @@
   color: var(--ion-color-primary);
 }
 
-.middle-content {
-  color: darken($clr-secondary, 20%);
-  background-color: transparentize($clr-secondary, 0.93);
+.card {
   padding: 5px;
-  border-bottom: 2px solid $clr-secondary;
+  border: 2px solid;
+  border-radius: 20px;
 
-  ion-fab-button {
-    p {
-      color: darken($clr-secondary, 30%);
+  width: 45%;
+
+  h2 {
+    font-size: 14px;
+  }
+
+  &.secondary {
+    color: darken($clr-secondary, 20%);
+    background-color: transparentize($clr-secondary, 0.8);
+    border-color: $clr-secondary;
+
+    ion-fab-button {
+      p {
+        color: darken($clr-secondary, 30%);
+      }
     }
   }
+
+  &.tertiary {
+    color: darken($clr-tertiary, 20%);
+    background-color: transparentize($clr-tertiary, 0.8);
+    border-color: $clr-tertiary;
+
+    ion-fab-button {
+      p {
+        color: darken($clr-tertiary, 30%);
+      }
+    }
+  }
+}
+
+.cards {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  padding: 20px 5px;
 }
 
 .content {

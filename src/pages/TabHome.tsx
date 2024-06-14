@@ -67,13 +67,17 @@ const TabHome: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="middle-content">
-                    <AppPanelConcentration />
+                <div className="cards">
+                    <div className="card secondary">
+                        <AppPanelConcentration />
+                    </div>
+
+                    <div className="card tertiary">
+                        <AppCairosAccent />
+                    </div>
                 </div>
 
                 <div className="content">
-                    <AppCairosAccent />
-
                     <AppPanelActions />
                 </div>
 
