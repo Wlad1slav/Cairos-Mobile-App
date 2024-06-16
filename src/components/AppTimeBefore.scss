@@ -3,8 +3,12 @@
 .hour-before-sleep {
   display: flex;
   align-items: center;
-  //justify-content: center;
   gap: 5px;
+
+  background-color: transparentize($clr-primary, 0.8);
+  padding: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
 
   p {
     margin: 0;
