@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {IonItem, IonItemSliding, IonList, IonPage} from '@ionic/react';
+import {IonPage} from '@ionic/react';
 
 import AppContent from "../components/AppContent";
 import AppHeader from "../components/AppHeader";
@@ -8,17 +8,16 @@ import AppTimeBeforeSleep from "../components/AppTimeBeforeSleep";
 import AppTimeBeforeYearEnd from "../components/AppTimeBeforeYearEnd";
 import AppPanelProgressWeek from "../components/AppPanelProgressWeek";
 import AppCairosAccent from "../components/AppCairosAccent";
-import AppRole from "../components/AppRole";
 import AppPanelConcentration from "../components/AppPanelConcentration";
+import AppPanelActions from "../components/AppPanelActions";
 
 import {useStorage} from "../hooks/useStorage";
 import storageKeys from "../config/storages.config";
 import requests from "../config/requests.config";
 import RequestAuthorized from "../utils/request.authorized.class";
-import {isProfileData} from "../utils/validation.data";
+import {isProfileData, UserModel} from "../models/user.model";
 
 import './TabHome.scss';
-import AppPanelActions from "../components/AppPanelActions";
 
 const TabHome: React.FC = () => {
 

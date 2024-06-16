@@ -11,7 +11,8 @@ import requests from "../config/requests.config";
 import storageKeys from "../config/storages.config";
 import routes from "../config/routes.config";
 import RequestAuthorized from "../utils/request.authorized.class";
-import {isProfileData} from "../utils/validation.data";
+
+import {isProfileData, UserModel} from "../models/user.model";
 
 import './TabProfile.scss';
 
