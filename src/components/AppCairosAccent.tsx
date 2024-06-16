@@ -12,13 +12,13 @@ const AppCairosAccent: React.FC = () => {
     return (
         <div className='cariros-accent'>
             <div className="short-info">
-                <span>
-                    🍎
+                <span style={{marginBottom: "10px"}}>
+                    📖
                 </span>
                 <h2>
-                    <span>
+                    {cairos[dayNumber].symbol && <span>
                         {cairos[dayNumber].symbol}
-                    </span>
+                    </span>}
                     {cairos[dayNumber].name}
                 </h2>
             </div>
