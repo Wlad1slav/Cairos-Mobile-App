@@ -2,14 +2,14 @@ import React, {useEffect, useState} from "react";
 import {IonPage} from '@ionic/react';
 
 import AppContent from "../components/AppContent";
-import AppHeader from "../components/AppHeader";
-import AppPanelProgressAge from "../components/AppPanelProgressAge";
-import AppTimeBeforeSleep from "../components/AppTimeBeforeSleep";
-import AppTimeBeforeYearEnd from "../components/AppTimeBeforeYearEnd";
-import AppPanelProgressWeek from "../components/AppPanelProgressWeek";
-import AppCairosAccent from "../components/AppCairosAccent";
-import AppPanelConcentration from "../components/AppPanelConcentration";
-import AppPanelActions from "../components/AppPanelActions";
+import AppHeader from "../components/header/AppHeader";
+import AppPanelProgressAge from "../components/panels/AppPanelProgressAge";
+import AppTimeBeforeSleep from "../components/blocks/AppTimeBeforeSleep";
+import AppTimeBeforeYearEnd from "../components/blocks/AppTimeBeforeYearEnd";
+import AppPanelProgressWeek from "../components/panels/AppPanelProgressWeek";
+import AppCairosAccent from "../components/blocks/AppCairosAccent";
+import AppPanelConcentration from "../components/panels/AppPanelConcentration";
+import AppPanelActions from "../components/panels/AppPanelActions";
 
 import {useStorage} from "../hooks/useStorage";
 import storageKeys from "../config/storages.config";

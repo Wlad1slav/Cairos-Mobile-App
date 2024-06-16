@@ -9,7 +9,7 @@ interface ProgressYearsProps {
     birthday?: string | null;
 }
 
-const AppPanelProgressAge: React.FC<ProgressYearsProps> = ({birthday = 'Loading...'}) => {
+const AppPanelProgressAge: React.FC<ProgressYearsProps> = ({birthday = 'Завантаження...'}) => {
 
     const birthdayDate = new Date(birthday ?? '');
     const todayDate = new Date();

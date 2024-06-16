@@ -2,7 +2,7 @@ import { IonIcon, IonInput } from "@ionic/react";
 import React, { useState } from "react";
 import { TextFieldTypes } from "@ionic/core";
 
-interface AppInput {
+interface AppInputProps {
     name: string;
     type: TextFieldTypes;
     label: string;
@@ -21,7 +21,7 @@ interface AppInput {
     onIonChange?: (e: CustomEvent) => void | undefined;
 }
 
-const AppInput: React.FC<AppInput> = ({
+const AppInput: React.FC<AppInputProps> = ({
                                           type,
                                           name,
                                           label,

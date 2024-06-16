@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import {IonButton, IonDatetime, IonDatetimeButton, IonModal, IonSelect, IonSelectOption, IonTitle} from '@ionic/react';
 import {person, save, warning} from "ionicons/icons";
 
-import AppInput from "../components/AppInput";
-import AppNotification from "../components/AppNotification";
+import AppInput from "../components/form/AppInput";
+import AppNotification from "../components/form/AppNotification";
 
 import RequestAuthorized from "../utils/request.authorized.class";
 import {useStorage} from "../hooks/useStorage";

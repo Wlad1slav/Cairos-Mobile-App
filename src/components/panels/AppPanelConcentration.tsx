@@ -1,17 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {IonIcon, IonFabButton} from '@ionic/react';
 
-import {alarm, happy} from "ionicons/icons";
+import {alarm} from "ionicons/icons";
 
-import AppModal from "./AppModal";
-import FormConcentrationLevel from "../forms/FormConcentrationLevel";
-import {useStorage} from "../hooks/useStorage";
+import AppModal from "../form/AppModal";
+import FormConcentrationLevel from "../../forms/FormConcentrationLevel";
+import {useStorage} from "../../hooks/useStorage";
 
-import requests from "../config/requests.config";
-import storageKeys from "../config/storages.config";
+import requests from "../../config/requests.config";
+import storageKeys from "../../config/storages.config";
+import concentrationLevelsConfig from "../../config/concentration-levels.config";
+import {ConcentrationLevelInterface} from "../../interfaces/concentrationLevel.interface";
 
 import './AppPanelConcentration.scss';
-import concentrationLevelsConfig from "../config/concentration-levels.config";
 
 const AppPanelConcentration: React.FC = () => {
     const now = new Date();
@@ -19,7 +20,7 @@ const AppPanelConcentration: React.FC = () => {
     const [minutesRemaining, setMinutesRemaining] = useState(0);
     const [isLevelInstalled, setIsLevelInstalled] = useState(false);
 
-    const {rows} = useStorage<{level: number, dateTime: string}>(storageKeys.concentrationLevel);
+    const {rows} = useStorage<ConcentrationLevelInterface>(storageKeys.concentrationLevel);
     const nowHours = new Date().getHours();
 
     /* Checks if the concentration level has been set at this hour. If so, isLevelInstalled is set to true,

@@ -1,6 +1,5 @@
 import React from "react";
 import TabHome from "../pages/TabHome";
-import TabTodos from "../pages/TabTodos";
 import TabRating from "../pages/TabRating";
 import TabProfile from "../pages/TabProfile";
 import TabRegistration from "../pages/TabRegistration";
@@ -43,10 +42,6 @@ const routes: RoutesConfig = {
     base: {
         url: '/home',
         tabComponent: TabHome
-    },
-    todo: {
-        url: '/todos',
-        tabComponent: TabTodos
     },
     usersRating: {
         url: '/rating',

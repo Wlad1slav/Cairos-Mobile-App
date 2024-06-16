@@ -1,7 +1,7 @@
 import React from "react";
 import { IonPage } from '@ionic/react';
 
-import AppHeader from "../components/AppHeader";
+import AppHeader from "../components/header/AppHeader";
 import AppContent from "../components/AppContent";
 import FormLogin from "../forms/FormLogin";
 

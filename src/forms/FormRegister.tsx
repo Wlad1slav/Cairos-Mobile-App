@@ -3,8 +3,8 @@ import {IonButton, IonTitle} from '@ionic/react';
 import {lockClosed, mail, warning} from "ionicons/icons";
 import axios from "axios";
 
-import AppInput from "../components/AppInput";
-import AppNotification from "../components/AppNotification";
+import AppInput from "../components/form/AppInput";
+import AppNotification from "../components/form/AppNotification";
 
 import { validateEmail, validatePassword, validatePasswordRepeat } from "../utils/validation.fields";
 import {useStorage} from "../hooks/useStorage";

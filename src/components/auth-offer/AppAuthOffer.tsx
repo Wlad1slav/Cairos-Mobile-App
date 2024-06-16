@@ -3,7 +3,7 @@ import {IonButton, IonIcon, IonTitle} from "@ionic/react";
 import {logIn} from "ionicons/icons";
 
 import './AppAuthOffer.scss';
-import routes from "../config/routes.config";
+import routes from "../../config/routes.config";
 
 const AppAuthOffer: React.FC = () => {
     return (

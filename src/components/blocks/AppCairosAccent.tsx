@@ -1,7 +1,7 @@
 import React from "react";
 
-import cairos from "../config/cairos-philosophy.config";
-import getWeekDay from "../utils/datetime.getWeekDay";
+import cairos from "../../config/cairos-philosophy.config";
+import getWeekDay from "../../utils/datetime.getWeekDay";
 
 import './AppCairosAccent.scss';
 

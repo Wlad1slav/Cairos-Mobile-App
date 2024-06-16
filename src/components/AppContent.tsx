@@ -3,7 +3,7 @@ import {IonContent} from "@ionic/react";
 
 import {useStorage} from "../hooks/useStorage";
 
-import AppAuthOffer from "./AppAuthOffer";
+import AppAuthOffer from "./auth-offer/AppAuthOffer";
 
 import storageKeys from "../config/storages.config";
 import routes from "../config/routes.config";

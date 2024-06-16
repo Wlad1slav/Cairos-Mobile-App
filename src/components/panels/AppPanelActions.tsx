@@ -3,17 +3,17 @@ import { IonFabButton, IonIcon } from "@ionic/react";
 import { bookmark, brush, checkmark, help, pencil } from "ionicons/icons";
 import axios, { AxiosResponse } from "axios";
 
-import AppModal from "./AppModal";
-import FormAnswerToTheQuestion from "../forms/FormAnswerToTheQuestion";
+import AppModal from "../form/AppModal";
+import FormAnswerToTheQuestion from "../../forms/FormAnswerToTheQuestion";
 
-import { useStorage } from "../hooks/useStorage";
+import { useStorage } from "../../hooks/useStorage";
 
-import {QuestionModel} from "../models/question.model";
+import {QuestionModel} from "../../models/question.model";
 
-import storageKeys from "../config/storages.config";
-import requests from "../config/requests.config";
+import storageKeys from "../../config/storages.config";
+import requests from "../../config/requests.config";
 
-import { ActionsStorage } from "../interfaces/actions.storage";
+import { ActionsStorage } from "../../interfaces/actions.storage";
 
 import './AppPanelActions.scss';
 

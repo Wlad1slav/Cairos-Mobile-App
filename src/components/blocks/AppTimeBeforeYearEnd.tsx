@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {IonIcon} from "@ionic/react";
-import {accessibility, alarm, alert, apps, bag, balloon, ban, cloudyNight} from "ionicons/icons";
+import {balloon} from "ionicons/icons";
 
 import './AppTimeBefore.scss';
 

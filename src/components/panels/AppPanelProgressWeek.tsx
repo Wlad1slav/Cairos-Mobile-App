@@ -3,9 +3,9 @@ import { IonIcon } from "@ionic/react";
 import { arrowForward } from "ionicons/icons";
 
 import './AppPanelProgressWeek.scss';
-import loadLocalization from "../lang/index.localization";
-import appConfig from "../config/app.config";
-import getWeekDay from "../utils/datetime.getWeekDay";
+import loadLocalization from "../../lang/index.localization";
+import appConfig from "../../config/app.config";
+import getWeekDay from "../../utils/datetime.getWeekDay";
 
 const AppPanelProgressWeek: React.FC = () => {
 
@@ -22,7 +22,7 @@ const AppPanelProgressWeek: React.FC = () => {
     }, []);
 
     if (!localization) {
-        return <div>Loading...</div>; // Show a loading state while localization is being loaded
+        return <div>Завантаження...</div>; // Show a loading state while localization is being loaded
     }
 
     const daysOfWeek = [1, 2, 3, 4, 5, 6, 7];

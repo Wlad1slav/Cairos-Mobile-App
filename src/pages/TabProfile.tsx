@@ -5,7 +5,7 @@ import {useStorage} from "../hooks/useStorage";
 import {female, male, transgender} from "ionicons/icons";
 
 import AppContent from "../components/AppContent";
-import AppHeader from "../components/AppHeader";
+import AppHeader from "../components/header/AppHeader";
 
 import requests from "../config/requests.config";
 import storageKeys from "../config/storages.config";
