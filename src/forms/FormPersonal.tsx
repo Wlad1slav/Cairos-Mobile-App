@@ -5,7 +5,6 @@ import {person, save, warning} from "ionicons/icons";
 import AppInput from "../components/AppInput";
 import AppNotification from "../components/AppNotification";
 
-import {isProfileData} from "../utils/validation.data";
 import RequestAuthorized from "../utils/request.authorized.class";
 import {useStorage} from "../hooks/useStorage";
 
@@ -13,6 +12,7 @@ import storageKeys from "../config/storages.config";
 import requests from "../config/requests.config";
 
 import './FormPersonal.scss'
+import {isProfileData, UserModel} from "../models/user.model";
 
 /**
  * Props for the FormPersonal component.
@@ -75,7 +75,6 @@ const FormPersonal: React.FC<FormProps> = ({ request }) => {
             const request = new RequestAuthorized(token);
             const response = request.get(requests.get.profile.data);
 
-            //
             response.then((value) => {
                 if (isProfileData<UserModel>(value)) {
 
@@ -110,7 +109,6 @@ const FormPersonal: React.FC<FormProps> = ({ request }) => {
     const submit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        //
         if (token) {
             const request: RequestAuthorized = new RequestAuthorized(token);
             const response: Response = await request.put<Response>(requests.pull.profile.update, data);
