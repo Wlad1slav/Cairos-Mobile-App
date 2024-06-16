@@ -1,5 +1,4 @@
-import {IonHeader, IonIcon, IonToolbar} from "@ionic/react";
-import {hourglass} from "ionicons/icons";
+import {IonHeader, IonToolbar} from "@ionic/react";
 
 import AppLogo from "./AppLogo";
 

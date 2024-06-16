@@ -14,6 +14,12 @@ const requests: RequestsConfig = {
         },
         todos: {
             newTodo: ''
+        },
+        actions: {
+            question: `${appConfig.apiRequestUrl}/app/action/question`,
+            goal: `${appConfig.apiRequestUrl}/app/action/goal`,
+            todo: `${appConfig.apiRequestUrl}/app/action/todo`,
+            all: `${appConfig.apiRequestUrl}/app/action/all`,
         }
     },
     post: {
@@ -23,6 +29,9 @@ const requests: RequestsConfig = {
         },
         concentration: {
             store: `${appConfig.apiRequestUrl}/app/concentration/store`
+        },
+        actions: {
+            answer: `${appConfig.apiRequestUrl}/app/action/answer`
         }
     },
     pull: {
