@@ -19,7 +19,7 @@ import './AppPanelActions.scss';
 
 const AppPanelActions: React.FC = () => {
     const [question, setQuestion] = useState<QuestionModel>({ id: -1, question: 'Завантажується...' });
-    const [goal, setGoal] = useState<GoalModel>({ id: -1, goal: 'Завантажується...' });
+    const [quote, setQuote] = useState<QuoteModel>({ id: -1, quote: 'Завантажується...' });
     const [todo, setTodo] = useState<TodoModel>({ id: -1, todo: 'Завантажується...' });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -30,14 +30,14 @@ const AppPanelActions: React.FC = () => {
         const fetchActions = async () => {
             try {
                 // HTTP request to get actions
-                const response: AxiosResponse<{ goal: GoalModel, question: QuestionModel, todo: TodoModel }> = await axios.get(requests.get.actions.all);
-                const { goal, question, todo } = response.data;
+                const response: AxiosResponse<{ quote: QuoteModel, question: QuestionModel, todo: TodoModel }> = await axios.get(requests.get.actions.all);
+                const { quote, question, todo } = response.data;
 
                 // Updating statuses based on received actions
                 setQuestion(question);
-                setGoal(goal);
+                setQuote(quote);
                 setTodo(todo);
-                setNewRows([{ question, goal, todo, date: new Date().toISOString() }]);
+                setNewRows([{ question, quote: quote, todo, date: new Date().toISOString() }]);
             } catch (error) {
                 // Sets an error on failure
                 setError("Не вдалося отримати дії. Будь-ласка спробуйте пізніше.");
@@ -48,9 +48,9 @@ const AppPanelActions: React.FC = () => {
 
         // Checks if there are any saved actions and if they are current
         const actions = rows[0]?.values;
-        if (actions && new Date(actions.date).toDateString() === new Date().toDateString() && actions.question.id !== -1 && actions.goal.id !== -1 && actions.todo.id !== -1) {
+        if (actions && new Date(actions.date).toDateString() === new Date().toDateString() && actions.question.id !== -1 && actions.quote.id !== -1 && actions.todo.id !== -1) {
             setQuestion(actions.question);
-            setGoal(actions.goal);
+            setQuote(actions.quote);
             setTodo(actions.todo);
             setLoading(false);
         } else {
@@ -67,11 +67,11 @@ const AppPanelActions: React.FC = () => {
             <div className="action">
                 <div className="label">
                     <IonIcon icon={bookmark} size='large' />
-                    <h3>Ціль</h3>
+                    <h3>Цитата</h3>
                 </div>
 
                 <div className='essence'>
-                    {goal.goal}
+                    {quote.quote}
                 </div>
 
                 <div></div>
