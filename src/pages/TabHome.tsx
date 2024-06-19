@@ -3,13 +3,13 @@ import {IonPage} from '@ionic/react';
 
 import AppContent from "../components/AppContent";
 import AppHeader from "../components/header/AppHeader";
-import AppPanelProgressAge from "../components/panels/AppPanelProgressAge";
+import AppProgressAge from "../components/blocks/AppProgressAge";
 import AppTimeBeforeSleep from "../components/blocks/AppTimeBeforeSleep";
 import AppTimeBeforeYearEnd from "../components/blocks/AppTimeBeforeYearEnd";
-import AppPanelProgressWeek from "../components/panels/AppPanelProgressWeek";
+import AppProgressWeek from "../components/blocks/AppProgressWeek";
 import AppCairosAccent from "../components/blocks/AppCairosAccent";
-import AppPanelConcentration from "../components/panels/AppPanelConcentration";
-import AppPanelActions from "../components/panels/AppPanelActions";
+import AppConcentration from "../components/blocks/AppConcentration";
+import AppActions from "../components/blocks/AppActions";
 
 import {useStorage} from "../hooks/useStorage";
 import storageKeys from "../config/storages.config";
@@ -46,7 +46,7 @@ const TabHome: React.FC = () => {
                 <div className="tab-header">
                     <div className="row">
                         <div className='block' style={{width: '50%'}}>
-                            <AppPanelProgressAge birthday={authorizedUser?.birthday_date} />
+                            <AppProgressAge birthday={authorizedUser?.birthday_date} />
                         </div>
 
                         <div className='block' style={{width: '50%'}}>
@@ -61,14 +61,14 @@ const TabHome: React.FC = () => {
 
                     <div className="row">
                         <div className='block' style={{width: '100%'}}>
-                            <AppPanelProgressWeek />
+                            <AppProgressWeek />
                         </div>
                     </div>
                 </div>
 
                 <div className="cards">
                     <div className="card secondary">
-                        <AppPanelConcentration />
+                        <AppConcentration />
                     </div>
 
                     <div className="card tertiary">
@@ -77,7 +77,7 @@ const TabHome: React.FC = () => {
                 </div>
 
                 <div className="content">
-                    <AppPanelActions />
+                    <AppActions />
                 </div>
 
             </AppContent>

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { IonFabButton, IonIcon } from "@ionic/react";
-import { bookmark, brush, checkmark, help, pencil } from "ionicons/icons";
+import {bookmark, brush, checkmark, heart, heartDislike, help, pencil} from "ionicons/icons";
 import axios, { AxiosResponse } from "axios";
 
-import AppModal from "../form/AppModal";
+import AppModal from "../general/AppModal";
 import FormAnswerToTheQuestion from "../../forms/FormAnswerToTheQuestion";
 
 import { useStorage } from "../../hooks/useStorage";
@@ -15,9 +15,10 @@ import requests from "../../config/requests.config";
 
 import { ActionsStorage } from "../../interfaces/actions.storage";
 
-import './AppPanelActions.scss';
+import './AppActions.scss';
+import AppAction from "./AppAction";
 
-const AppPanelActions: React.FC = () => {
+const AppActions: React.FC = () => {
     const [question, setQuestion] = useState<QuestionModel>({ id: -1, question: 'Завантажується...' });
     const [quote, setQuote] = useState<QuoteModel>({ id: -1, quote: 'Завантажується...' });
     const [todo, setTodo] = useState<TodoModel>({ id: -1, todo: 'Завантажується...' });
@@ -64,57 +65,26 @@ const AppPanelActions: React.FC = () => {
 
     return (
         <div className='panel--actions'>
-            <div className="action">
-                <div className="label">
-                    <IonIcon icon={bookmark} size='large' />
-                    <h3>Цитата</h3>
-                </div>
 
-                <div className='essence'>
-                    {quote.quote}
-                </div>
+            <AppAction label={'Цитата'} labelIcon={bookmark} text={quote.quote} button={{ icon: heart }} />
 
-                <div></div>
-            </div>
+            <AppAction
+                label={'Питання'}
+                labelIcon={help}
+                text={question.question} button={{
+                    icon: pencil,
+                    id: 'open-modal-write-question-answer'
+                }}
+                modal={{
+                    trigger: 'open-modal-write-question-answer',
+                    title: 'Відповісти',
+                    children: <FormAnswerToTheQuestion requestLink={requests.post.actions.answer} question={question} />
+                }}
+            />
 
-            <div className="action">
-                <div className="label">
-                    <IonIcon icon={help} size='large' />
-                    <h3>Питання</h3>
-                </div>
-
-                <div className='essence'>
-                    {question.question}
-                </div>
-
-                <IonFabButton style={{ minWidth: "40px" }} color={'dark'} size={'small'} id='open-modal-write-question-answer'>
-                    <IonIcon icon={pencil}></IonIcon>
-                </IonFabButton>
-
-                <AppModal trigger={'open-modal-write-question-answer'} title={'Відповісти'}>
-                    <FormAnswerToTheQuestion
-                        requestLink={requests.post.actions.answer}
-                        question={question}
-                    />
-                </AppModal>
-            </div>
-
-            <div className="action">
-                <div className="label">
-                    <IonIcon icon={brush} size='large' />
-                    <h3>Дія</h3>
-                </div>
-
-                <div className='essence'>
-                    {todo.todo}
-                </div>
-
-                <IonFabButton style={{ minWidth: "40px" }} color={'dark'} size={'small'} id='open-modal-concentration'>
-                    <IonIcon icon={checkmark}></IonIcon>
-                </IonFabButton>
-            </div>
+            <AppAction label={'Дія'} labelIcon={brush} text={todo.todo} button={{icon: checkmark}} />
         </div>
     );
 }
 
-export default AppPanelActions;
+export default AppActions;

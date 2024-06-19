@@ -3,7 +3,7 @@ import {IonButton, IonTextarea} from "@ionic/react";
 
 import {warning} from "ionicons/icons";
 
-import AppNotification from "../components/form/AppNotification";
+import AppNotification from "../components/general/AppNotification";
 
 import {useStorage} from "../hooks/useStorage";
 

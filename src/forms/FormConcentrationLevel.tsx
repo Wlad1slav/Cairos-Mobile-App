@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import {IonButton, IonRadio, IonRadioGroup} from "@ionic/react";
+import {IonButton} from "@ionic/react";
 
 import {warning} from "ionicons/icons";
 
-import AppInput from "../components/AppInput";
-import AppNotification from "../components/AppNotification";
+import AppInput from "../components/general/AppInput";
+import AppNotification from "../components/general/AppNotification";
 
 import {useStorage} from "../hooks/useStorage";
 import {validateConcentrationLevel} from "../utils/validation.concentration";

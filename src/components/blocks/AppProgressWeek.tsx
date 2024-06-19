@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import { IonIcon } from "@ionic/react";
 import { arrowForward } from "ionicons/icons";
 
-import './AppPanelProgressWeek.scss';
+import './AppProgressWeek.scss';
 import loadLocalization from "../../lang/index.localization";
 import appConfig from "../../config/app.config";
 import getWeekDay from "../../utils/datetime.getWeekDay";
 
-const AppPanelProgressWeek: React.FC = () => {
+const AppProgressWeek: React.FC = () => {
 
     const [localization, setLocalization] = useState<any>(null);
 
@@ -50,4 +50,4 @@ const AppPanelProgressWeek: React.FC = () => {
     );
 };
 
-export default AppPanelProgressWeek;
+export default AppProgressWeek;

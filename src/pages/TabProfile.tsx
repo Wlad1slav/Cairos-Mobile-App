@@ -59,7 +59,7 @@ const TabProfile: React.FC = () => {
 
                             {authorizedUser.name && <div className="field">
                                 <p className="label">ім'я</p>
-                                <p>{authorizedUser.name}</p>
+                                <p className='value'>{authorizedUser.name}</p>
                             </div>}
 
                             {authorizedUser.sex !== 'dont-specify' && <div className="field">
@@ -93,7 +93,7 @@ const TabProfile: React.FC = () => {
 
                             {authorizedUser.birthday_date && <div className="field">
                                 <p className="label">дата народження</p>
-                                <p>{authorizedUser.birthday_date}</p>
+                                <p className='value'>{authorizedUser.birthday_date}</p>
                             </div>}
                         </div>
 

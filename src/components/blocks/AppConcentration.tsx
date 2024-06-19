@@ -3,7 +3,7 @@ import {IonIcon, IonFabButton} from '@ionic/react';
 
 import {alarm} from "ionicons/icons";
 
-import AppModal from "../form/AppModal";
+import AppModal from "../general/AppModal";
 import FormConcentrationLevel from "../../forms/FormConcentrationLevel";
 import {useStorage} from "../../hooks/useStorage";
 
@@ -12,9 +12,9 @@ import storageKeys from "../../config/storages.config";
 import concentrationLevelsConfig from "../../config/concentration-levels.config";
 import {ConcentrationLevelInterface} from "../../interfaces/concentrationLevel.interface";
 
-import './AppPanelConcentration.scss';
+import './AppConcentration.scss';
 
-const AppPanelConcentration: React.FC = () => {
+const AppConcentration: React.FC = () => {
     const now = new Date();
 
     const [minutesRemaining, setMinutesRemaining] = useState(0);
@@ -82,4 +82,4 @@ const AppPanelConcentration: React.FC = () => {
     );
 }
 
-export default AppPanelConcentration;
+export default AppConcentration;
