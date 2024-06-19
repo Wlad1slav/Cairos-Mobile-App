@@ -96,8 +96,8 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
                 />
 
                 {
-                    errors.email.map((error) =>
-                        <AppNotification icon={warning} color={"danger"}>{error}</AppNotification>
+                    errors.email?.map((error) =>
+                        <AppNotification key={error} icon={warning} color={"danger"}>{error}</AppNotification>
                     )
                 }
             </div>
@@ -128,8 +128,8 @@ const FormRegister: React.FC<FormProps> = ({request}) => {
                 />
 
                 {
-                    errors.password.map((error) =>
-                        <AppNotification icon={warning} color={"danger"}>{error}</AppNotification>
+                    errors.password?.map((error) =>
+                        <AppNotification key={error} icon={warning} color={"danger"}>{error}</AppNotification>
                     )
                 }
             </div>
