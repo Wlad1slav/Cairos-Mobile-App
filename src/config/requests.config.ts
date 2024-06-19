@@ -17,6 +17,7 @@ const requests: RequestsConfig = {
         },
         actions: {
             question: `${appConfig.apiRequestUrl}/app/action/question`,
+            answers: `${appConfig.apiRequestUrl}/app/action/answers`,
             goal: `${appConfig.apiRequestUrl}/app/action/goal`,
             todo: `${appConfig.apiRequestUrl}/app/action/todo`,
             all: `${appConfig.apiRequestUrl}/app/action/all`,
