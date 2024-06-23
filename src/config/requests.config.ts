@@ -21,6 +21,10 @@ const requests: RequestsConfig = {
             goal: `${appConfig.apiRequestUrl}/app/action/goal`,
             todo: `${appConfig.apiRequestUrl}/app/action/todo`,
             all: `${appConfig.apiRequestUrl}/app/action/all`,
+        },
+        roles: {
+            my: `${appConfig.apiRequestUrl}/app/roles/my`,
+            certain: `${appConfig.apiRequestUrl}/app/roles`
         }
     },
     post: {
@@ -33,6 +37,9 @@ const requests: RequestsConfig = {
         },
         actions: {
             answer: `${appConfig.apiRequestUrl}/app/action/answer`
+        },
+        roles: {
+            select: `${appConfig.apiRequestUrl}/app/roles/select`
         }
     },
     pull: {
@@ -43,7 +50,11 @@ const requests: RequestsConfig = {
             update: `${appConfig.apiRequestUrl}/app/user/profile/update/personal`,
         }
     },
-    delete: {}
+    delete: {
+        roles: {
+            role: `${appConfig.apiRequestUrl}/app/roles/delete/role`,
+        }
+    }
 };
 
 export default requests;

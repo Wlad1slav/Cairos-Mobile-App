@@ -1,0 +1,32 @@
+@import "../../stylesheet/globals";
+
+.my-role-for-week {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+
+  border: 2px solid $clr-secondary;
+  background-color: transparentize($clr-secondary, 0.9);
+  padding: 10px;
+  text-align: center;
+
+  h3, p { margin: 0; }
+  h3 {
+    color: $clr-secondary;
+    border-bottom: 4px solid;
+  }
+
+  .parts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .part {
+      border: 1px solid $clr-secondary;
+      border-radius: 5px;
+      background-color: $clr-secondary;
+      color: white;
+      padding-block: 5px;
+    }
+  }
+}

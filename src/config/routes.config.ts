@@ -5,6 +5,9 @@ import TabProfile from "../pages/TabProfile";
 import TabRegistration from "../pages/TabRegistration";
 import TabAuthorization from "../pages/TabAuthorization";
 import TabFillPersonalInfo from "../pages/TabFillPersonalInfo";
+import TabRoles from "../pages/RoleTabs/TabRoles";
+import TabRoleSelectOwn from "../pages/RoleTabs/TabRoleSelectOwn";
+import TabRoleSelectGlobal from "../pages/RoleTabs/TabRoleSelectGlobal";
 
 interface RouteObject {
     url: string;
@@ -46,6 +49,20 @@ const routes: RoutesConfig = {
     usersRating: {
         url: '/rating',
         tabComponent: TabRating
+    },
+
+    // Roles
+    roles: {
+        url: '/roles',
+        tabComponent: TabRoles
+    },
+    roleSelectOwn: {
+        url: '/roles/select/own',
+        tabComponent: TabRoleSelectOwn
+    },
+    roleSelectGlobal: {
+        url: '/roles/select/global',
+        tabComponent: TabRoleSelectGlobal
     },
 }
 

@@ -1,5 +1,5 @@
 import routes from "./routes.config";
-import {alarmSharp, home, person, star} from "ionicons/icons";
+import {home, person, star, sync} from "ionicons/icons";
 
 interface NavigationElement {
     label: string;
@@ -18,9 +18,9 @@ const navigationElements: NavigationConfig = {
         icon: home
     },
     todos: {
-        label: 'Нагадування',
-        href: routes.todo.url,
-        icon: alarmSharp
+        label: 'Ролі',
+        href: '/roles',
+        icon: sync
     },
     usersRating: {
         label: 'Рейтинг',

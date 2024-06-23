@@ -5,7 +5,8 @@ interface StorageKeysConfig {
 const storageKeys: StorageKeysConfig = {
     token: 'token',
     concentrationLevel: 'concentration_level',
-    actions: 'actions'
+    actions: 'actions',
+    roleForWeek: 'role-for-week'
 }
 
 export default storageKeys;
