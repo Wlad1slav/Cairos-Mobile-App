@@ -34,11 +34,9 @@ const TabProfile: React.FC = () => {
     useEffect(() => {
         if (token) {
             const request = new RequestAuthorized(token);
-            const response = request.get(requests.get.profile.data);
+            const response = request.get<UserModel>(requests.get.profile.data);
             response.then((value) => {
-                if (isProfileData<UserModel>(value)) {
-                    setAuthorizedUser(value);
-                }
+                setAuthorizedUser(value);
             });
         }
     }, [token]);

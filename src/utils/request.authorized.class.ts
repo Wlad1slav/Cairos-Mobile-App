@@ -25,7 +25,7 @@ class RequestAuthorized {
      * @param request - URL of the request.
      * @returns Response data or undefined in case of an error.
      */
-    async get<T>(request: string): Promise<T | undefined> {
+    async get<T>(request: string): Promise<T> {
         const response: AxiosResponse<T> = await axios.get(request);
         return response.data;
     }
