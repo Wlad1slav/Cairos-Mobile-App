@@ -1,0 +1,28 @@
+@import "../../stylesheet/globals";
+
+.tabs {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+
+  background-color: transparentize($clr-tertiary, 0.9);
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  .tab {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--ion-color-tertiary);
+    transition: all 0.1s ease-in-out;
+
+    &.selected {
+      border-bottom: 2px solid var(--ion-color-tertiary);
+      font-weight: 600;
+    }
+
+    &:focus {
+      background: var(--ion-color-tertiary);
+      color: white;
+    }
+  }
+}
