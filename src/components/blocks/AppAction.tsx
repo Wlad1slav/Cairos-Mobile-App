@@ -10,7 +10,7 @@ const AppAction: React.FC<{
     label: string;
     labelIcon: string;
     text: string;
-    button: { id?: string; icon: string; action?: () => void };
+    button?: { id?: string; icon: string; action?: () => void };
     modal?: { trigger: string; title: string; children: JSX.Element; }
 }> = ({label, labelIcon, text, button, modal}) => {
     return (
@@ -25,13 +25,13 @@ const AppAction: React.FC<{
             </div>
 
             <div className="button">
-                <IonFabButton
-                    style={{ minWidth: "40px" }}
+                {button && <IonFabButton
+                    style={{minWidth: "40px"}}
                     color={'dark'}
                     size={'small'}
                     id={button.id}>
                     <IonIcon icon={button.icon}></IonIcon>
-                </IonFabButton>
+                </IonFabButton>}
             </div>
 
             {

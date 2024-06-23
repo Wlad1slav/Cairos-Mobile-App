@@ -66,7 +66,7 @@ const AppActions: React.FC = () => {
     return (
         <div className='panel--actions'>
 
-            <AppAction label={'Цитата'} labelIcon={bookmark} text={quote.quote} button={{ icon: heart }} />
+            <AppAction label={'Цитата'} labelIcon={bookmark} text={quote.quote} />
 
             <AppAction
                 label={'Питання'}
@@ -82,7 +82,7 @@ const AppActions: React.FC = () => {
                 }}
             />
 
-            <AppAction label={'Дія'} labelIcon={brush} text={todo.todo} button={{icon: checkmark}} />
+            <AppAction label={'Дія'} labelIcon={brush} text={todo.todo} />
         </div>
     );
 }
