@@ -56,8 +56,7 @@ const AppConcentration: React.FC = () => {
 
                 {isLevelInstalled ? <div className="item">
                     <p className='accent'>
-                        {rows[0]?.values.level}
-                        {
+                        {rows[0]?.values.level} {
                             concentrationLevelsConfig[rows[0]?.values.level as keyof typeof concentrationLevelsConfig].emoji
                         }
                     </p>
