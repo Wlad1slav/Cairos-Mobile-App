@@ -25,6 +25,12 @@ import isDateThisWeek from "../../utils/datetime.isDateThisWeek";
 import RequestAuthorized from "../../utils/request.authorized.class";
 import requests from "../../config/requests.config";
 import { isProfileData, UserModel } from "../../models/user.model";
+import SelectRoleButton from "../../components/roles/SelectRoleButton";
+import DeleteRoleButton from "../../components/roles/DeleteRoleButton";
+import deleteRoleButton from "../../components/roles/DeleteRoleButton";
+import CreateRoleButton from "../../components/roles/CreateRoleButton";
+import SelectRoleRadioGroup from "../../components/roles/SelectRoleRadioGroup";
+import RoleTabs from "../../components/roles/RoleTabs";
 
 const TabRoleSelectOwn: React.FC = () => {
     // Obtaining a token for the request API
@@ -116,16 +122,7 @@ const TabRoleSelectOwn: React.FC = () => {
         <IonPage>
             <AppHeader/>
             <AppContent>
-                <AppTabs tabs={[
-                    {
-                        label: 'Мій список',
-                        url: routes.roleSelectOwn.url,
-                    },
-                    {
-                        label: 'Глобальні ролі',
-                        url: routes.roleSelectGlobal.url,
-                    },
-                ]} />
+                <RoleTabs />
 
                 <h1 style={{ textAlign: "center" }}>Вибрати роль</h1>
 
@@ -137,55 +134,28 @@ const TabRoleSelectOwn: React.FC = () => {
                 }
 
                 <IonList>
-                    <IonRadioGroup value={selectedRoleId ?? (hasRelevantRole ? lastRole?.roleId : null)} onIonChange={handleChanges}>
-                        {roles.map((role) => (
-                            <IonItem key={role.id}>
-                                <IonRadio value={role.id}>
-                                    {role.role}
-
-                                    {/* Displayed a list of parts of the selected role */}
-                                    <ul style={{ display: selectedRoleId === role.id ? "block" : "none" }}>
-                                        {
-                                            role.parts?.map((part) => {
-                                                return <li key={part}>{part}</li>
-                                            })
-                                        }
-                                    </ul>
-                                </IonRadio>
-                            </IonItem>
-                        ))}
-                    </IonRadioGroup>
+                    <SelectRoleRadioGroup
+                        selectedRoleId={selectedRoleId}
+                        hasRelevantRole={hasRelevantRole}
+                        lastRoleId={lastRole?.roleId}
+                        handleChanges={handleChanges}
+                        roles={roles}
+                    />
                 </IonList>
 
                 <IonFab slot="fixed" vertical="bottom" horizontal="end">
                     {selectedRoleId && (
                         <>
-                            <IonFabButton color={'danger'} size={'small'} onClick={deleteRoleVisual} id='open-toast-deleted-role'>
-                                <IonIcon icon={trash}></IonIcon>
-                            </IonFabButton>
-                            <IonToast
-                                trigger="open-toast-deleted-role"
-                                message="Роль видалена"
-                                duration={3000}
-                                buttons={[
-                                    {
-                                        text: 'Відмінити',
-                                        role: 'cancel',
-                                        handler: () => deleteRoleDismiss(),
-                                    },
-                                ]}
-                                onDidDismiss={(e: CustomEvent) => deleteRole(e.detail.role)}
-                            ></IonToast>
+                            <DeleteRoleButton
+                                deleteRoleVisual={deleteRoleVisual}
+                                deleteRole={deleteRole}
+                                deleteRoleDismiss={deleteRoleDismiss}
+                            />
 
-                            <IonFabButton color={'tertiary'} onClick={selectRole} id='open-toast-role-selected'>
-                                <IonIcon icon={checkmark}></IonIcon>
-                            </IonFabButton>
-                            <IonToast trigger="open-toast-role-selected" message="Роль вибрана" duration={2000} />
+                            <SelectRoleButton selectRole={selectRole} />
                         </>
                     )}
-                    <IonFabButton color={'primary'} size={'small'}>
-                        <IonIcon icon={add}></IonIcon>
-                    </IonFabButton>
+                    <CreateRoleButton />
                 </IonFab>
             </AppContent>
         </IonPage>
