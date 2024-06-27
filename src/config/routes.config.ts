@@ -1,6 +1,5 @@
 import React from "react";
 import TabHome from "../pages/TabHome";
-import TabRating from "../pages/TabRating";
 import TabProfile from "../pages/TabProfile";
 import TabRegistration from "../pages/TabRegistration";
 import TabAuthorization from "../pages/TabAuthorization";
@@ -45,10 +44,6 @@ const routes: RoutesConfig = {
     base: {
         url: '/home',
         tabComponent: TabHome
-    },
-    usersRating: {
-        url: '/rating',
-        tabComponent: TabRating
     },
 
     // Roles

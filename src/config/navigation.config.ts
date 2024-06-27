@@ -19,13 +19,8 @@ const navigationElements: NavigationConfig = {
     },
     todos: {
         label: 'Ролі',
-        href: '/roles',
+        href: routes.roles.url,
         icon: sync
-    },
-    usersRating: {
-        label: 'Рейтинг',
-        href: routes.usersRating.url,
-        icon: star
     },
     userProfile: {
         label: 'Профіль',
