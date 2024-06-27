@@ -19,8 +19,8 @@ const SelectRoleRadioGroup: React.FC<{
                             {/* Displayed a list of parts of the selected role */}
                             <ul style={{ display: selectedRoleId === role.id ? "block" : "none" }}>
                                 {
-                                    role.parts?.map((part) => {
-                                        return <li key={part}>{part}</li>
+                                    role.parts?.map((part, index) => {
+                                        return <li key={index}>{part}</li>
                                     })
                                 }
                             </ul>
