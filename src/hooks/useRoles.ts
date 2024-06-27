@@ -64,6 +64,8 @@ export const useRoles = (roleRequest: string) => {
             request.delete(`${requests.delete.roles.role}?roleId=${selectedRoleId}`).then((value) => {
                 console.log(value);
             });
+
+            setNewRows([]);
         }
     };
 
