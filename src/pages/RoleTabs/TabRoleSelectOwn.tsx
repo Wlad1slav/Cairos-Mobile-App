@@ -39,7 +39,7 @@ const TabRoleSelectOwn: React.FC = () => {
                 {
                     roles.length < 1 &&
                     <p style={{paddingInline: "20px"}}>
-                        У вас поки що немає жодної ролі! Ви можете <a href="/">створити власну</a> або <a href={routes.roleSelectGlobal.url}>вибрати одну з підтверженних, глобальних ролей</a>.
+                        У вас поки що немає жодної ролі! Ви можете створити власну або <a href={routes.roleSelectGlobal.url}>вибрати одну з підтверженних, глобальних ролей</a>.
                     </p>
                 }
 
