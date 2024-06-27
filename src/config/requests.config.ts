@@ -24,6 +24,7 @@ const requests: RequestsConfig = {
         },
         roles: {
             my: `${appConfig.apiRequestUrl}/app/roles/my`,
+            global: `${appConfig.apiRequestUrl}/app/roles/global`,
             certain: `${appConfig.apiRequestUrl}/app/roles`
         }
     },
