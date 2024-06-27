@@ -1,0 +1,28 @@
+@import "../stylesheet/globals";
+
+#createRole {
+  .add-part {
+    display: flex;
+    gap: 20px;
+  }
+
+  .parts {
+    display: flex;
+    flex-direction: column;
+
+    .part {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      p {
+        padding: 5px;
+        border: 2px solid var(--ion-color-primary);
+        background-color: transparentize($clr-primary, 0.9);
+        width: 80%;
+        border-radius: 5px;
+      }
+    }
+
+  }
+}

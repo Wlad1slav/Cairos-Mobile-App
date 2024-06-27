@@ -39,7 +39,8 @@ const requests: RequestsConfig = {
             answer: `${appConfig.apiRequestUrl}/app/action/answer`
         },
         roles: {
-            select: `${appConfig.apiRequestUrl}/app/roles/select`
+            select: `${appConfig.apiRequestUrl}/app/roles/select`,
+            create: `${appConfig.apiRequestUrl}/app/roles/create`,
         }
     },
     pull: {
